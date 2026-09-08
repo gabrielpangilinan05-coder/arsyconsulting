@@ -150,6 +150,15 @@ body {
   @apply rounded-xl border border-slate-200 bg-white shadow-sm dark:border-slate-800 dark:bg-slate-950 dark:shadow-none;
 }
 
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 @keyframes logo-marquee {
   from {
     transform: translateX(0);
@@ -167,9 +176,40 @@ body {
   animation-play-state: paused;
 }
 
+@keyframes industry-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.industry-marquee {
+  animation: industry-marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.industry-ticker:hover .industry-marquee {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .logo-marquee {
     animation: none;
+    display: none;
+  }
+
+  .industry-marquee {
+    animation: none;
+    flex-wrap: wrap;
+    width: 100% !important;
+    max-width: 72rem;
+    margin-inline: auto;
+    justify-content: flex-start;
+  }
+
+  .industry-marquee li:nth-child(n + 15) {
     display: none;
   }
 }

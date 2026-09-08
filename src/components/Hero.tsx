@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { ArrowRight } from "lucide-react";
+import FadeIn from "@/components/FadeIn";
 
 const metrics = [
   { value: "15–30%", label: "Typical cost reduction potential" },
@@ -22,7 +26,7 @@ export default function Hero() {
             }}
             aria-hidden
           />
-          <div className="relative max-w-xl">
+          <FadeIn className="relative max-w-xl">
             <h1 className="text-3xl font-extrabold uppercase leading-[1.1] tracking-tight sm:text-4xl lg:text-5xl">
               <span className="block text-slate-900 dark:text-white">Stronger Operations.</span>
               <span className="block text-slate-900 dark:text-white">Stronger Teams.</span>
@@ -36,11 +40,12 @@ export default function Hero() {
             </p>
             <a
               href="#contact"
-              className="mt-7 inline-flex items-center justify-center rounded-md bg-[#b89355] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all hover:bg-[#a6824a]"
+              className="mt-7 inline-flex items-center justify-center gap-2 rounded-md bg-[#b89355] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all hover:bg-[#a6824a]"
             >
               Request a Consultation
+              <ArrowRight className="h-4 w-4" aria-hidden />
             </a>
-          </div>
+          </FadeIn>
         </div>
 
         <div className="relative min-h-[240px] sm:min-h-[320px] lg:min-h-full">
@@ -61,17 +66,21 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="mx-auto flex max-w-7xl flex-col items-start px-4 py-8 sm:px-6 sm:py-10 lg:px-8">
-        <div className="grid w-full grid-cols-1 gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:grid-cols-3 dark:border-slate-800 dark:bg-slate-900">
-          {metrics.map((metric) => (
-            <div key={metric.label} className="min-w-0">
-              <p className="mb-1 text-2xl font-extrabold text-emerald-600 sm:text-3xl dark:text-emerald-400">
-                {metric.value}
-              </p>
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-400">{metric.label}</p>
-            </div>
-          ))}
-        </div>
+      <div className="mx-auto max-w-6xl px-5 py-8 sm:py-10 lg:px-8">
+        <FadeIn delay={0.15}>
+          <div className="grid w-full grid-cols-1 gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm md:grid-cols-3 dark:border-slate-800 dark:bg-slate-900">
+            {metrics.map((metric) => (
+              <div key={metric.label} className="min-w-0">
+                <p className="mb-1 text-2xl font-extrabold text-emerald-600 sm:text-3xl dark:text-emerald-400">
+                  {metric.value}
+                </p>
+                <p className="text-xs font-medium text-slate-500 dark:text-slate-400">
+                  {metric.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </FadeIn>
       </div>
     </section>
   );

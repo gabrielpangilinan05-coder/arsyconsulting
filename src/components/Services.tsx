@@ -1,7 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import { useCallback, useEffect, useId, useRef, useState, type ReactNode } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
+import {
+  ArrowRight,
+  BarChart3,
+  ChartColumn,
+  Check,
+  CircleDollarSign,
+  Factory,
+  Layers,
+  Workflow,
+  X,
+  type LucideIcon,
+} from "lucide-react";
+import FadeIn from "@/components/FadeIn";
 
 interface ServiceItem {
   id: string;
@@ -11,7 +24,7 @@ interface ServiceItem {
   fullText: string;
   image: string;
   capabilities: string[];
-  icon: ReactNode;
+  icon: LucideIcon;
 }
 
 const services: ServiceItem[] = [
@@ -29,17 +42,7 @@ const services: ServiceItem[] = [
       "Downtime Reduction",
       "Standard Operating Procedures (SOPs)",
     ],
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-        <path
-          d="M4 19V5M4 19h16M8 15V9m4 6V7m4 8v-4"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    icon: BarChart3,
   },
   {
     id: "process-improvement",
@@ -51,22 +54,7 @@ const services: ServiceItem[] = [
       "Value-stream mapping and Lean manufacturing principles applied directly to production lines to streamline workflow speed and product consistency. We remove non-value-added steps that quietly erode capacity.",
     image: "/images/services/process-improvement.jpg",
     capabilities: ["Value-Stream Mapping", "Line Balancing", "Bottleneck Elimination"],
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-        <path
-          d="M4 7h10M4 12h16M4 17h8"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-        <path
-          d="M16 5l4 2-4 2V5zM14 15l4 2-4 2v-4z"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    icon: Workflow,
   },
   {
     id: "cost-efficiency",
@@ -78,16 +66,7 @@ const services: ServiceItem[] = [
       "Data-driven strategies to reduce material yield loss, optimize utility/energy consumption, and eliminate non-value-added steps in production — protecting quality and safety while improving margins.",
     image: "/images/services/cost-optimization.jpg",
     capabilities: ["Yield Loss Control", "Raw Material Waste Audit", "Resource Allocation"],
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-        <path
-          d="M12 3v18M7 8.5c0-1.9 2.2-3.5 5-3.5s5 1.6 5 3.5-2.2 3.5-5 3.5-5 1.6-5 3.5 2.2 3.5 5 3.5 5-1.6 5-3.5"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: CircleDollarSign,
   },
   {
     id: "production-capacity",
@@ -99,17 +78,7 @@ const services: ServiceItem[] = [
       "Unlock capacity already sitting inside your plant. We improve production flow, changeovers, workforce utilization, and line performance so you get more output from assets you already own.",
     image: "/images/services/capacity-optimization.png",
     capabilities: ["Line Speed Balancing", "Changeover Reduction", "Throughput Gains Without CapEx"],
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-        <path
-          d="M3 20h18M5 20V10l4-3 4 5 3-2 3 4v6"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        />
-      </svg>
-    ),
+    icon: Factory,
   },
   {
     id: "kpi-performance",
@@ -121,16 +90,7 @@ const services: ServiceItem[] = [
       "Implementing real-time shop-floor KPI tracking dashboards, daily tier-meeting governance, and frontline management accountability tools — so data drives action, not just reports.",
     image: "/images/services/kpi-management.png",
     capabilities: ["Custom KPI Dashboards", "Shop-floor Leadership", "Sustained Governance"],
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-        <path
-          d="M4 20V10m5 10V4m5 16v-7m5 7V8"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinecap="round"
-        />
-      </svg>
-    ),
+    icon: ChartColumn,
   },
   {
     id: "operational-transformation",
@@ -146,17 +106,7 @@ const services: ServiceItem[] = [
       "New Operating Standards",
       "Sustained Cultural Change",
     ],
-    icon: (
-      <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" aria-hidden>
-        <path
-          d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z"
-          stroke="currentColor"
-          strokeWidth="1.75"
-          strokeLinejoin="round"
-        />
-        <path d="M12 12l8-4.5M12 12v9M12 12L4 7.5" stroke="currentColor" strokeWidth="1.75" />
-      </svg>
-    ),
+    icon: Layers,
   },
 ];
 
@@ -200,7 +150,7 @@ function ServiceModal({
         onClick={onClose}
       />
 
-      <div className="relative w-full max-w-2xl animate-[fade-in_0.2s_ease-out] overflow-hidden rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-2xl dark:border-slate-800 dark:bg-slate-900 dark:text-white">
+      <div className="scrollbar-hide relative max-h-[90vh] w-full max-w-2xl animate-[fade-in_0.2s_ease-out] overflow-y-auto rounded-2xl border border-slate-200 bg-white text-slate-900 shadow-2xl dark:border-slate-800 dark:bg-slate-900 dark:text-white">
         <button
           ref={closeRef}
           type="button"
@@ -208,14 +158,7 @@ function ServiceModal({
           className="absolute top-4 right-4 z-10 rounded-full bg-slate-100 p-2 text-slate-700 transition-all hover:bg-slate-200 dark:bg-slate-800 dark:text-slate-200 dark:hover:bg-slate-700"
           aria-label="Close"
         >
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" aria-hidden>
-            <path
-              d="M6 6l12 12M18 6L6 18"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-            />
-          </svg>
+          <X className="h-4 w-4" aria-hidden />
         </button>
 
         <div className="relative h-56 w-full">
@@ -253,15 +196,7 @@ function ServiceModal({
                 className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-200"
               >
                 <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400">
-                  <svg viewBox="0 0 24 24" className="h-3.5 w-3.5" fill="none" aria-hidden>
-                    <path
-                      d="M5 12l5 5L20 7"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    />
-                  </svg>
+                  <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden />
                 </span>
                 {item}
               </li>
@@ -286,9 +221,12 @@ export default function Services() {
   const closeModal = useCallback(() => setSelectedService(null), []);
 
   return (
-    <section id="services" className="scroll-mt-24 bg-white py-10 sm:py-14 lg:py-16 dark:bg-slate-950">
+    <section
+      id="services"
+      className="scroll-mt-28 bg-white py-10 sm:py-14 lg:py-16 dark:bg-slate-950"
+    >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
-        <div className="mb-8 max-w-3xl">
+        <FadeIn className="mb-8 max-w-3xl">
           <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
             Our Services
           </p>
@@ -301,54 +239,59 @@ export default function Services() {
             operational expertise with a practical, results-driven approach — from identifying
             opportunities to implementing sustainable improvements.
           </p>
-        </div>
+        </FadeIn>
 
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {services.map((service) => (
-            <button
-              key={service.id}
-              type="button"
-              onClick={() => setSelectedService(service)}
-              className="group flex h-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition-all hover:border-emerald-500 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900 dark:hover:border-emerald-500/80"
-            >
-              <div className="relative h-36 w-full overflow-hidden sm:h-40">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-              </div>
-
-              <div className="flex flex-1 flex-col justify-between p-4 sm:p-5">
-                <div>
-                  <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-400">
-                    {service.icon}
+          {services.map((service, index) => {
+            const Icon = service.icon;
+            return (
+              <FadeIn key={service.id} delay={0.06 * index}>
+                <button
+                  type="button"
+                  onClick={() => setSelectedService(service)}
+                  className="group flex h-full w-full cursor-pointer flex-col overflow-hidden rounded-2xl border border-slate-200 bg-white text-left shadow-sm transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl hover:shadow-emerald-500/10 dark:border-slate-800/90 dark:bg-slate-900/90 dark:hover:border-emerald-500/40 dark:hover:shadow-emerald-950/40"
+                >
+                  <div className="relative h-36 w-full overflow-hidden sm:h-40">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
                   </div>
-                  <h3 className="mb-1.5 text-base font-bold text-slate-900 sm:text-lg dark:text-white">
-                    {service.title}
-                  </h3>
-                  <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
-                    {service.tagline}
-                  </p>
-                  <p className="text-xs leading-normal text-slate-600 sm:text-sm dark:text-slate-300">
-                    {service.description}
-                  </p>
-                </div>
-                <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-600 transition group-hover:text-emerald-700 sm:text-sm dark:text-emerald-400 dark:group-hover:text-emerald-300">
-                  Learn more
-                  <span aria-hidden>→</span>
-                </span>
-              </div>
-            </button>
-          ))}
+
+                  <div className="flex flex-1 flex-col justify-between p-5 sm:p-6">
+                    <div>
+                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 transition-all duration-300 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white dark:text-emerald-400 dark:group-hover:text-slate-950">
+                        <Icon className="h-5 w-5" aria-hidden />
+                      </div>
+                      <h3 className="mb-1.5 text-base font-bold text-slate-900 sm:text-lg dark:text-white">
+                        {service.title}
+                      </h3>
+                      <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
+                        {service.tagline}
+                      </p>
+                      <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-400">
+                        {service.description}
+                      </p>
+                    </div>
+                    <span className="mt-4 flex items-center gap-1 text-xs font-semibold text-emerald-600 dark:text-emerald-400">
+                      Learn more
+                      <ArrowRight
+                        className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                        aria-hidden
+                      />
+                    </span>
+                  </div>
+                </button>
+              </FadeIn>
+            );
+          })}
         </div>
       </div>
 
-      {selectedService && (
-        <ServiceModal service={selectedService} onClose={closeModal} />
-      )}
+      {selectedService && <ServiceModal service={selectedService} onClose={closeModal} />}
     </section>
   );
 }

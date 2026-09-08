@@ -1,6 +1,8 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { Calculator } from "lucide-react";
+import FadeIn from "@/components/FadeIn";
 
 const formatCurrency = (value: number) =>
   new Intl.NumberFormat("en-US", {
@@ -25,12 +27,13 @@ export default function RoiEstimator() {
   return (
     <section
       id="roi-estimator"
-      className="scroll-mt-24 bg-slate-100/70 py-10 sm:py-14 lg:py-16 dark:bg-slate-950"
+      className="scroll-mt-28 bg-slate-100/70 py-10 sm:py-14 lg:py-16 dark:bg-slate-950"
     >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <div className="grid items-start gap-8 lg:grid-cols-2 lg:gap-12">
-          <div>
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+          <FadeIn>
+            <p className="mb-2 flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+              <Calculator className="h-3.5 w-3.5" aria-hidden />
               ROI Estimator
             </p>
             <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
@@ -62,7 +65,7 @@ export default function RoiEstimator() {
                   className="w-full accent-emerald-600"
                   aria-valuetext={formatCurrency(annualCost)}
                 />
-                <div className="mt-1 flex justify-between text-xs text-slate-500">
+                <div className="mt-1 flex justify-between text-xs text-slate-500 dark:text-slate-400">
                   <span>$1M</span>
                   <span>$100M</span>
                 </div>
@@ -86,7 +89,7 @@ export default function RoiEstimator() {
                   onChange={(e) => setWastePercent(Number(e.target.value))}
                   className="w-full accent-emerald-600"
                 />
-                <div className="mt-1 flex justify-between text-xs text-slate-500">
+                <div className="mt-1 flex justify-between text-xs text-slate-500 dark:text-slate-400">
                   <span>5%</span>
                   <span>40%</span>
                 </div>
@@ -110,44 +113,46 @@ export default function RoiEstimator() {
                   onChange={(e) => setRecoveryRate(Number(e.target.value))}
                   className="w-full accent-emerald-600"
                 />
-                <div className="mt-1 flex justify-between text-xs text-slate-500">
+                <div className="mt-1 flex justify-between text-xs text-slate-500 dark:text-slate-400">
                   <span>15%</span>
                   <span>60%</span>
                 </div>
               </label>
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900">
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
-              Projected opportunity
-            </p>
-            <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
-              Estimated annual waste cost
-            </p>
-            <p className="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
-              {formatCurrency(results.wasteCost)}
-            </p>
-
-            <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-700">
-              <p className="text-xs text-slate-500 dark:text-slate-400">Potential annual savings</p>
-              <p className="mt-1 text-3xl font-extrabold tracking-tight text-emerald-600 sm:text-4xl dark:text-emerald-400">
-                {formatCurrency(results.recoverable)}
+          <FadeIn delay={0.15}>
+            <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900">
+              <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+                Projected opportunity
               </p>
-              <p className="mt-2 text-xs text-slate-500 sm:text-sm">
-                Conservative range: {formatCurrency(results.conservative)} –{" "}
-                {formatCurrency(results.stretch)}
+              <p className="mt-3 text-xs text-slate-500 dark:text-slate-400">
+                Estimated annual waste cost
+              </p>
+              <p className="mt-1 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
+                {formatCurrency(results.wasteCost)}
+              </p>
+
+              <div className="mt-6 border-t border-slate-200 pt-6 dark:border-slate-700">
+                <p className="text-xs text-slate-500 dark:text-slate-400">Potential annual savings</p>
+                <p className="mt-1 text-3xl font-extrabold tracking-tight text-emerald-600 sm:text-4xl dark:text-emerald-400">
+                  {formatCurrency(results.recoverable)}
+                </p>
+                <p className="mt-2 text-xs text-slate-500 sm:text-sm dark:text-slate-400">
+                  Conservative range: {formatCurrency(results.conservative)} –{" "}
+                  {formatCurrency(results.stretch)}
+                </p>
+              </div>
+
+              <a href="#contact" className="btn-primary mt-6 w-full text-sm">
+                Validate with an Operational Audit
+              </a>
+              <p className="mt-3 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
+                Illustrative model only. Actual savings depend on facility maturity, product mix,
+                labor markets, and execution quality.
               </p>
             </div>
-
-            <a href="#contact" className="btn-primary mt-6 w-full text-sm">
-              Validate with an Operational Audit
-            </a>
-            <p className="mt-3 text-xs leading-relaxed text-slate-500">
-              Illustrative model only. Actual savings depend on facility maturity, product mix,
-              labor markets, and execution quality.
-            </p>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

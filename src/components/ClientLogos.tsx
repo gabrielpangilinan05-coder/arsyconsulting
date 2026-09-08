@@ -188,7 +188,7 @@ export default function ClientLogos() {
       className="border-y border-slate-200 bg-slate-100/70 py-8 sm:py-10 dark:border-slate-800 dark:bg-slate-950"
     >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
-        <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wider text-slate-500 sm:text-left sm:text-sm">
+        <p className="mb-8 text-center text-xs font-semibold uppercase tracking-wider text-slate-500 sm:text-left sm:text-sm dark:text-slate-400">
           Trusted by teams at leading global enterprises
         </p>
       </div>

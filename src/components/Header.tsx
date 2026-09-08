@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
 import Logo from "@/components/Logo";
 
@@ -65,13 +66,7 @@ export default function Header() {
             onClick={() => setOpen((v) => !v)}
           >
             <span className="sr-only">Menu</span>
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden>
-              {open ? (
-                <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2" />
-              ) : (
-                <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="2" />
-              )}
-            </svg>
+            {open ? <X className="h-5 w-5" aria-hidden /> : <Menu className="h-5 w-5" aria-hidden />}
           </button>
         </div>
       </div>
