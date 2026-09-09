@@ -62,8 +62,10 @@ export default function ContactForm() {
   const [selectedDate, setSelectedDate] = useState<number | null>(11);
   const [selectedTime, setSelectedTime] = useState<string>("11:30 AM");
   const [validationError, setValidationError] = useState("");
+  const [submitError, setSubmitError] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
 
   const closeRef = useRef<HTMLButtonElement>(null);
   const isDark = themeReady && resolvedTheme === "dark";
@@ -101,6 +103,7 @@ export default function ContactForm() {
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+    if (submitError) setSubmitError("");
     if (validationError && (name === "fullName" || name === "email")) {
       setValidationError("");
     }
@@ -122,8 +125,12 @@ export default function ContactForm() {
     setIsModalOpen(true);
   };
 
-  const submitPayload = () => ({
-    ...formData,
+  const buildPayload = () => ({
+    fullName: formData.fullName.trim(),
+    email: formData.email.trim(),
+    company: formData.company.trim(),
+    location: formData.location.trim(),
+    challenge: formData.challenge.trim(),
     discoveryCall:
       selectedDate && selectedTime
         ? {
@@ -136,11 +143,43 @@ export default function ContactForm() {
 
   const finishSubmit = async () => {
     setIsSubmitting(true);
+    setSubmitError("");
+
     try {
-      await new Promise((resolve) => setTimeout(resolve, 650));
-      console.info("Lead capture / booking request:", submitPayload());
+      const payload = buildPayload();
+      const response = await fetch("/api/audit-request", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = (await response.json().catch(() => null)) as
+        | { success?: boolean; error?: string }
+        | null;
+
+      if (!response.ok || !result?.success) {
+        throw new Error(result?.error || "Failed to send your audit request. Please try again.");
+      }
+
+      setSubmittedName(payload.fullName);
+      setFormData({
+        fullName: "",
+        email: "",
+        company: "",
+        location: "",
+        challenge: "",
+      });
+      setSelectedTime("");
+      setValidationError("");
       setIsSubmitted(true);
       setIsModalOpen(false);
+    } catch (error) {
+      const message =
+        error instanceof Error
+          ? error.message
+          : "Failed to send your audit request. Please try again.";
+      setSubmitError(message);
+      setIsSubmitted(false);
     } finally {
       setIsSubmitting(false);
     }
@@ -198,24 +237,24 @@ export default function ContactForm() {
             className="w-full space-y-6 rounded-2xl border border-slate-200 bg-white p-6 text-left shadow-sm sm:p-8 dark:border-slate-800 dark:bg-slate-900"
           >
             {isSubmitted ? (
-              <div className="space-y-4 py-12 text-center">
-                <CheckCircle2 className="mx-auto h-16 w-16 animate-bounce text-emerald-500 dark:text-emerald-400" />
-                <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                  Request Received!
+              <div
+                className="space-y-4 rounded-xl border border-emerald-200 bg-emerald-50 p-6 text-center dark:border-emerald-500/30 dark:bg-emerald-500/10"
+                role="status"
+              >
+                <CheckCircle2 className="mx-auto h-12 w-12 text-emerald-500 dark:text-emerald-400" />
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white">
+                  Thank you! Your audit request has been sent.
                 </h3>
                 <p className="text-sm text-slate-600 dark:text-slate-300">
-                  Thank you{formData.fullName ? `, ${formData.fullName}` : ""}. Our team will review
-                  your details
-                  {selectedDate && selectedTime
-                    ? ` and your discovery call on ${weekdayLabel(selectedDate)} at ${selectedTime}`
-                    : ""}{" "}
-                  shortly.
+                  {submittedName ? `Thanks, ${submittedName}. ` : ""}
+                  We&apos;ll review your details and follow up shortly.
                 </p>
                 <button
                   type="button"
                   onClick={() => {
                     setIsSubmitted(false);
-                    setSelectedTime("");
+                    setSubmittedName("");
+                    setSubmitError("");
                     setValidationError("");
                   }}
                   className="text-xs font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
@@ -295,6 +334,15 @@ export default function ContactForm() {
                 {validationError && !isModalOpen && (
                   <p className="text-xs font-medium text-rose-600 dark:text-rose-400">
                     {validationError}
+                  </p>
+                )}
+
+                {submitError && (
+                  <p
+                    className="rounded-xl border border-rose-200 bg-rose-50 px-3 py-2 text-xs font-medium text-rose-700 dark:border-rose-500/30 dark:bg-rose-500/10 dark:text-rose-300"
+                    role="alert"
+                  >
+                    {submitError}
                   </p>
                 )}
 
