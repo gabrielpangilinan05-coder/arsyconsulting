@@ -5,14 +5,12 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowRight,
-  Cpu,
+  Check,
   DollarSign,
-  Droplets,
   Factory,
   PieChart,
   ShieldAlert,
   ShieldCheck,
-  ShoppingBag,
   SlidersHorizontal,
   TrendingUp,
   X,
@@ -29,78 +27,106 @@ interface IndustryItem {
   badge: string;
   shortText: string;
   image: string;
-  focusAreas?: string;
-  objective?: string;
-  rule?: string;
-  goal?: string;
+  focusAreas: string[];
   icon: LucideIcon;
 }
 
 const industries: IndustryItem[] = [
   {
-    id: "food-beverage",
-    title: "Food & Beverage Manufacturing",
-    subtitle: "Efficiency, Quality, Safety & Reliability",
-    badge: "Quality & Safety",
+    id: "operational-excellence",
+    title: "Operational Excellence",
+    subtitle: "Standardized Work, SOPs & Daily Management",
+    badge: "Operational Discipline",
     shortText:
-      "Improve production performance, reduce waste, optimize labor, and remove floor bottlenecks.",
-    focusAreas:
-      "Production Efficiency • Waste Reduction • Capacity • Productivity • Quality • Cost Optimization • Continuous Improvement",
-    image: "/images/food-beverage-line.jpg",
-    icon: Droplets,
-  },
-  {
-    id: "industrial",
-    title: "Industrial Manufacturing",
-    subtitle: "Stronger Processes. Higher Performance.",
-    badge: "Capacity & Flow",
-    shortText:
-      "Support complex production flow, reduce downtime, increase productivity, and structure operations.",
-    objective: "Get more performance from your operation.",
-    image: "/images/industrial-assembly-line.png",
+      "Streamline workflows, strengthen standard operating procedures, and create more efficient day-to-day operations.",
+    focusAreas: [
+      "Workflow Optimization",
+      "Standard Operating Procedures (SOPs)",
+      "Daily Management Systems",
+      "Operational Efficiency",
+    ],
+    image: "/images/services/operational-excellence.jpg",
     icon: Factory,
   },
   {
-    id: "high-tech",
-    title: "High-Tech & Electronics Manufacturing",
-    subtitle: "Precision. Performance. Continuous Improvement.",
-    badge: "Precision Systems",
+    id: "cost-reduction",
+    title: "Cost Reduction",
+    subtitle: "Profitability, Margin Protection & Loss Elimination",
+    badge: "Margin & Profitability",
     shortText:
-      "Maintain strict quality control, strengthen operational processes, and create reliable production environments.",
-    image: "/images/high-tech-cleanroom.png",
-    icon: Cpu,
+      "Identify unnecessary costs, production losses, and inefficiencies that impact your margins.",
+    focusAreas: [
+      "Cost Optimization",
+      "Production Loss Elimination",
+      "Yield Improvement",
+      "Margin Protection",
+    ],
+    image: "/images/services/cost-optimization.jpg",
+    icon: DollarSign,
   },
   {
-    id: "medical-cleanroom",
-    title: "Medical & Cleanroom Manufacturing",
-    subtitle: "Quality & Efficiency in Controlled Environments",
-    badge: "Quality & Compliance",
+    id: "process-improvement",
+    title: "Process Improvement",
+    subtitle: "Bottleneck Removal, Value Stream & Cycle Time",
+    badge: "Throughput & Flow",
     shortText:
-      "Disciplined processes, standardization, and strong management for regulated, cleanroom environments.",
-    rule: "Quality and efficiency should strengthen each other — not compete.",
-    image: "/images/medical-cleanroom.png",
+      "Find bottlenecks and improve the way work moves through your facility—from production to delivery.",
+    focusAreas: [
+      "Bottleneck Removal",
+      "Lead Time Reduction",
+      "Shop-Floor Flow",
+      "Process Mapping",
+    ],
+    image: "/images/services/process-improvement.jpg",
+    icon: Zap,
+  },
+  {
+    id: "quality-consistency",
+    title: "Quality & Consistency",
+    subtitle: "Defect Reduction, Rework Elimination & Waste Control",
+    badge: "Zero Defects & Standards",
+    shortText:
+      "Build processes that produce more consistent results and reduce defects, rework, and waste.",
+    focusAreas: [
+      "Defect Reduction",
+      "Rework Minimization",
+      "Standardized Quality Controls",
+      "Scrap Reduction",
+    ],
+    image: "/images/services/kpi-management.png",
     icon: ShieldCheck,
   },
   {
-    id: "consumer-products",
-    title: "Consumer Products",
-    subtitle: "Cost, Speed, Quality & Flexibility",
-    badge: "Speed & Flexibility",
+    id: "productivity-improvement",
+    title: "Productivity Improvement",
+    subtitle: "Asset Performance, OEE & Labor Efficiency",
+    badge: "Capacity & Utilization",
     shortText:
-      "Enhance production efficiency, workforce utilization, and capacity to build a responsive manufacturing organization.",
-    image: "/images/consumer-products.png",
-    icon: ShoppingBag,
+      "Help your people and equipment perform more effectively without simply adding more resources.",
+    focusAreas: [
+      "OEE Improvement",
+      "Labor Productivity",
+      "Asset Utilization",
+      "Capacity Maximization",
+    ],
+    image: "/images/services/capacity-optimization.png",
+    icon: TrendingUp,
   },
   {
-    id: "packaging-process",
-    title: "Packaging & Process Manufacturing",
-    subtitle: "Reduce Waste. Improve Flow. Increase Output.",
-    badge: "Efficiency",
+    id: "sustainable-improvements",
+    title: "Sustainable Improvements",
+    subtitle: "Long-Term Systems, Kaizen & Operational Culture",
+    badge: "Continuous Improvement",
     shortText:
-      "Eliminate thousands of small repeated inefficiencies in flow, equipment utilization, and downtime.",
-    goal: "Create a more stable, efficient, and profitable operation.",
-    image: "/images/packaging-process.png",
-    icon: Zap,
+      "Put practical systems in place so improvements continue long after the consulting engagement ends.",
+    focusAreas: [
+      "Continuous Improvement Systems",
+      "Kaizen & Lean Culture",
+      "Sustained Performance",
+      "Operational Governance",
+    ],
+    image: "/images/services/transformation.jpg",
+    icon: PieChart,
   },
 ];
 
@@ -210,53 +236,31 @@ function IndustryModal({
           <p className="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
             {industry.subtitle}
           </p>
-          <p className="mt-4 text-base leading-relaxed text-slate-600 dark:text-slate-300">
+          <p className="mt-4 mb-6 text-base leading-relaxed text-slate-600 dark:text-slate-300">
             {industry.shortText}
           </p>
 
-          {industry.focusAreas && (
-            <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4 dark:border-slate-800 dark:bg-slate-950">
-              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">
-                Focus Areas
-              </p>
-              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-800 dark:text-slate-200">
-                {industry.focusAreas}
-              </p>
-            </div>
-          )}
-
-          {industry.objective && (
-            <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/80 p-4 dark:border-emerald-500/20 dark:bg-emerald-500/10">
-              <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
-                Objective
-              </p>
-              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-800 dark:text-slate-200">
-                {industry.objective}
-              </p>
-            </div>
-          )}
-
-          {industry.rule && (
-            <p className="mt-6 text-sm italic leading-relaxed text-slate-600 dark:text-slate-400">
-              {industry.rule}
-            </p>
-          )}
-
-          {industry.goal && (
-            <div className="mt-6 rounded-xl border border-emerald-200 bg-emerald-50/80 p-4 dark:border-emerald-500/20 dark:bg-emerald-500/10">
-              <p className="text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
-                Goal
-              </p>
-              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-800 dark:text-slate-200">
-                {industry.goal}
-              </p>
-            </div>
-          )}
+          <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+            Key Capabilities
+          </p>
+          <ul className="mb-8 space-y-3">
+            {industry.focusAreas.map((item) => (
+              <li
+                key={item}
+                className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-200"
+              >
+                <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-400">
+                  <Check className="h-3.5 w-3.5" strokeWidth={2.5} aria-hidden />
+                </span>
+                {item}
+              </li>
+            ))}
+          </ul>
 
           <a
             href="#contact"
             onClick={onClose}
-            className="mt-8 inline-flex w-full items-center justify-center rounded-lg bg-emerald-600 px-6 py-3 font-semibold text-white shadow-md transition-all hover:bg-emerald-700"
+            className="inline-flex w-full items-center justify-center rounded-xl bg-emerald-600 px-6 py-3.5 font-bold text-white shadow-md transition-all hover:bg-emerald-700"
           >
             Discuss {industry.title}
           </a>
@@ -356,15 +360,9 @@ export default function NicheFocus() {
         </div>
 
         <div className="mt-12">
-          <FadeIn className="mb-6 max-w-2xl">
-            <h3 className="mb-2 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
-              Different Industries. One Objective.
-            </h3>
-            <p className="text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-              Regardless of the product being manufactured, our approach remains focused on
-              measurable business impact.
-            </p>
-          </FadeIn>
+          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+            Let&apos;s Improve Your Operations
+          </p>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {pillars.map((item, index) => {

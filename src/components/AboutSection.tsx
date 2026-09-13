@@ -1,42 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import {
-  ArrowRight,
-  BarChart3,
-  CheckCircle2,
-  Target,
-  TrendingUp,
-  Users,
-  Wrench,
-} from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { ArrowRight, Target, TrendingUp } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
-
-const whyFeatures: { title: string; copy: string; icon: LucideIcon }[] = [
-  {
-    title: "Hands-On Floor Experience",
-    copy: "Practical, on-site implementation alongside plant managers and shop floor operators.",
-    icon: Wrench,
-  },
-  {
-    title: "Data-Driven Strategy",
-    copy: "Root cause identification using operational data, OEE tracking, and capacity bottlenecks.",
-    icon: BarChart3,
-  },
-  {
-    title: "Sustainable Culture",
-    copy: "Building long-term continuous improvement (Kaizen) and ownership directly within your workforce.",
-    icon: Users,
-  },
-];
-
-const highlightBadges = [
-  "Less waste",
-  "Higher efficiency",
-  "Better performance",
-  "Stronger profitability",
-];
+import FounderSection from "@/components/FounderSection";
 
 export default function AboutSection() {
   return (
@@ -47,17 +14,58 @@ export default function AboutSection() {
             About Us
           </p>
           <h2 className="mb-3 mt-2 max-w-4xl text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-            Transforming Operations. Creating Lasting Results.
+            Built on Manufacturing Experience. Focused on Better Results.
           </h2>
-          <p className="mb-8 max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-            Arsy Consulting is an international consulting firm focused on helping manufacturing
-            companies improve operational performance, increase efficiency, reduce costs, and
-            achieve sustainable profitable growth. We believe successful transformation goes beyond
-            advice. It requires understanding what happens on the production floor, identifying the
-            real causes behind performance gaps, and turning opportunities into measurable
-            improvements.
-          </p>
+          <div className="max-w-3xl space-y-4 text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+            <p>
+              At Arsy Consulting, we believe better manufacturing starts with understanding how a
+              business really operates.
+            </p>
+            <p>
+              Our foundation comes from firsthand experience inside manufacturing—from working on
+              the production floor to leading teams and managing increasingly complex operations.
+              That experience has provided a practical understanding of the challenges manufacturers
+              face every day: productivity, costs, quality, people, processes, performance, and the
+              pressure to deliver results.
+            </p>
+            <p>
+              Arsy Consulting was created to bring that experience to manufacturers looking for more
+              than advice.
+            </p>
+            <p>
+              We work alongside management and operational teams to understand what is happening on
+              the floor, identify the real causes behind performance gaps, and put practical
+              improvement into action. Our work focuses on operational excellence, production
+              efficiency, productivity, cost reduction, Lean manufacturing, KPI and performance
+              management, workforce optimization, leadership, change management, and continuous
+              improvement.
+            </p>
+            <p className="font-semibold text-slate-800 dark:text-slate-100">
+              We don&apos;t believe in one-size-fits-all solutions.
+            </p>
+            <p>
+              Every factory has its own people, processes, culture, equipment, and challenges. Our
+              approach is to understand your operations first, then develop solutions that make
+              sense for your business.
+            </p>
+            <p>
+              The goal is simple: improve the way your operation works—and make those improvements
+              last.
+            </p>
+          </div>
         </FadeIn>
+      </div>
+
+      <div className="pb-8 lg:pb-10">
+        <div className="mx-auto max-w-6xl px-5 lg:px-8">
+          <FadeIn>
+            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+              Meet Our Founder &amp; CEO
+            </p>
+          </FadeIn>
+
+          <FounderSection />
+        </div>
       </div>
 
       <div className="pb-8 lg:pb-10">
@@ -71,19 +79,25 @@ export default function AboutSection() {
             className="h-full rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-shadow duration-300 hover:border-emerald-500/40 hover:shadow-xl sm:p-7 dark:border-slate-800 dark:bg-slate-900"
           >
             <Target className="mb-3 h-6 w-6 text-emerald-500" aria-hidden />
-            <h3 className="mb-3 text-xl font-extrabold text-slate-900 sm:text-2xl dark:text-white">
+            <p className="mb-1 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
               Our Mission
-            </h3>
-            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              We work alongside management and operational teams to identify improvement
-              opportunities, strengthen processes, increase productivity, and create a culture of
-              continuous improvement. Our goal is not only to recommend change — but to help make
-              change happen.
             </p>
-            <div className="mt-4 rounded-r-xl border-l-4 border-emerald-500 bg-emerald-50/50 p-4 pl-4 dark:bg-emerald-500/10">
-              <p className="text-sm font-medium leading-relaxed text-slate-700 dark:text-slate-200">
-                Our mission is simple: to make manufacturing businesses stronger, smarter, and more
-                profitable.
+            <h3 className="mb-3 text-xl font-extrabold text-slate-900 sm:text-2xl dark:text-white">
+              Helping Manufacturers Work Smarter and Perform Better.
+            </h3>
+            <div className="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p>
+                Our mission is to help manufacturing companies improve productivity, reduce
+                unnecessary costs, strengthen their processes, and develop stronger teams.
+              </p>
+              <p>
+                We work alongside our clients to turn operational challenges into practical
+                improvements and measurable results—creating manufacturing operations that are more
+                efficient, disciplined, competitive, and profitable.
+              </p>
+              <p>
+                We measure our success by the improvements our clients are able to achieve and
+                sustain.
               </p>
             </div>
           </motion.article>
@@ -97,68 +111,28 @@ export default function AboutSection() {
             className="h-full rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-shadow duration-300 hover:border-emerald-500/40 hover:shadow-xl sm:p-7 dark:border-slate-800 dark:bg-slate-900"
           >
             <TrendingUp className="mb-3 h-6 w-6 text-emerald-500" aria-hidden />
-            <h3 className="mb-3 text-xl font-extrabold text-slate-900 sm:text-2xl dark:text-white">
-              From the Production Floor to Business Performance
-            </h3>
-            <p className="text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-              Great results start with strong operations. We look at the complete operation —
-              people, processes, productivity, quality, costs, capacity, and management systems — to
-              understand where performance can be improved. Every solution is built around the needs
-              and challenges of the organization.
+            <p className="mb-1 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+              Our Vision
             </p>
-            <div className="mt-5 grid grid-cols-2 gap-2.5">
-              {highlightBadges.map((item) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2 rounded-xl border border-emerald-500/20 bg-emerald-500/10 px-3 py-2 text-xs font-semibold text-emerald-800 transition-colors hover:bg-emerald-500/20 dark:border-emerald-500/30 dark:bg-emerald-500/10 dark:text-emerald-300 dark:hover:bg-emerald-500/20"
-                >
-                  <CheckCircle2 className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" />
-                  <span>{item}</span>
-                </div>
-              ))}
+            <h3 className="mb-3 text-xl font-extrabold text-slate-900 sm:text-2xl dark:text-white">
+              To Help Shape the Future of Better Manufacturing.
+            </h3>
+            <div className="space-y-3 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+              <p>
+                Our vision is to build Arsy Consulting into a trusted international manufacturing
+                consulting partner, working alongside organizations around the world to create
+                stronger, smarter, and more competitive operations.
+              </p>
+              <p>
+                We want to help manufacturers eliminate unnecessary losses, develop capable teams,
+                improve performance, and build systems that allow their businesses to grow with
+                confidence.
+              </p>
+              <p className="font-medium text-slate-800 dark:text-slate-100">
+                Our ambition is international, but our approach remains personal.
+              </p>
             </div>
           </motion.article>
-        </div>
-      </div>
-
-      <div className="py-8 sm:py-10">
-        <div className="mx-auto max-w-6xl px-5 lg:px-8">
-          <FadeIn className="mb-8 max-w-3xl">
-            <h3 className="mb-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-              Why Arsy Consulting?
-            </h3>
-            <p className="max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-              We combine hands-on manufacturing experience with a performance-driven consulting
-              approach. Our focus is always on practical execution and measurable results.
-            </p>
-          </FadeIn>
-
-          <div className="mt-6 grid grid-cols-1 gap-4 md:grid-cols-3">
-            {whyFeatures.map((feature, index) => {
-              const Icon = feature.icon;
-              return (
-                <motion.article
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -6 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6, delay: index * 0.15, ease: "easeOut" }}
-                  className="group rounded-2xl border border-slate-200/80 bg-white p-6 shadow-sm transition-all duration-300 hover:border-emerald-500/40 hover:shadow-xl dark:border-slate-800 dark:bg-slate-900"
-                >
-                  <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600 transition-transform group-hover:scale-110 dark:bg-emerald-500/15 dark:text-emerald-400">
-                    <Icon className="h-5 w-5" aria-hidden />
-                  </div>
-                  <h4 className="text-base font-bold text-slate-900 sm:text-lg dark:text-white">
-                    {feature.title}
-                  </h4>
-                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
-                    {feature.copy}
-                  </p>
-                </motion.article>
-              );
-            })}
-          </div>
         </div>
       </div>
 

@@ -33,7 +33,7 @@ export default function Hero() {
               <span className="mt-1 block text-[#b89355]">Better Results.</span>
             </h1>
             <p className="mt-5 max-w-md text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-              We help food manufacturing companies improve{" "}
+              We help manufacturing companies improve{" "}
               <span className="font-semibold text-[#b89355]">performance</span>, increase{" "}
               <span className="font-semibold text-[#b89355]">efficiency</span> and drive sustainable
               growth.

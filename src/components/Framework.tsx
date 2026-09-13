@@ -2,10 +2,9 @@
 
 import { motion } from "framer-motion";
 import {
-  ClipboardList,
-  Gauge,
-  ListChecks,
+  Lightbulb,
   Search,
+  ShieldCheck,
   Wrench,
 } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
@@ -19,33 +18,31 @@ const steps: {
 }[] = [
   {
     number: "01",
-    title: "Analyze",
-    summary: "Understand your operation, performance, challenges, and opportunities.",
+    title: "Understand",
+    summary:
+      "We start by understanding your operation, your people, your processes, and the challenges affecting performance.",
     icon: Search,
   },
   {
     number: "02",
-    title: "Prioritize",
-    summary: "Identify improvements with the greatest operational and financial impact.",
-    icon: ListChecks,
+    title: "Identify",
+    summary:
+      "We look beyond the symptoms to uncover the root causes of inefficiency, waste, bottlenecks, and performance gaps.",
+    icon: Lightbulb,
   },
   {
     number: "03",
-    title: "Implement",
-    summary: "Turn recommendations into practical changes together with your teams.",
+    title: "Improve",
+    summary:
+      "We work with your team to develop and implement practical solutions that improve day-to-day performance.",
     icon: Wrench,
   },
   {
     number: "04",
-    title: "Measure",
-    summary: "Track performance and quantify the results.",
-    icon: Gauge,
-  },
-  {
-    number: "05",
     title: "Sustain",
-    summary: "Build standards, ownership, and continuous improvement into the organization.",
-    icon: ClipboardList,
+    summary:
+      "We help establish the standards, accountability, and continuous improvement practices needed to keep those gains moving forward.",
+    icon: ShieldCheck,
   },
 ];
 
@@ -58,14 +55,14 @@ export default function Framework() {
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <FadeIn className="mb-8 max-w-2xl">
           <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
-            Our Methodology
+            Our Approach
           </p>
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
             Our Way of Working
           </h2>
           <p className="max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-            A closed-loop operating system for plant transformation. Every phase ends with
-            measurable output so executives can see progress in cost, throughput, and control.
+            A practical four-step approach that moves from understanding your operation to lasting
+            performance gains.
           </p>
         </FadeIn>
 
@@ -79,7 +76,7 @@ export default function Framework() {
             aria-hidden
           />
 
-          <ol className="relative z-10 grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-5">
+          <ol className="relative z-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {steps.map((step, index) => {
               const Icon = step.icon;
               return (
@@ -120,6 +117,18 @@ export default function Framework() {
             })}
           </ol>
         </div>
+
+        <FadeIn className="mt-10 max-w-3xl">
+          <h3 className="mb-3 text-xl font-bold tracking-tight text-slate-900 sm:text-2xl dark:text-white">
+            From the Production Floor to Your Next Level of Performance
+          </h3>
+          <p className="text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
+            Manufacturing is where people, processes, technology, and business performance come
+            together. At Arsy Consulting, we bring real operational experience to that
+            intersection—helping manufacturers see opportunities, overcome challenges, and turn
+            improvement into a competitive advantage.
+          </p>
+        </FadeIn>
       </div>
     </section>
   );

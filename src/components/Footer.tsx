@@ -1,6 +1,6 @@
 "use client";
 
-import { ExternalLink, Mail, MapPin } from "lucide-react";
+import { ExternalLink, Mail, MapPin, Phone } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 export default function Footer() {
@@ -11,8 +11,8 @@ export default function Footer() {
           <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
             <div>
               <p className="max-w-md text-sm leading-relaxed text-slate-600 dark:text-slate-400">
-                Hands-on operational excellence for food manufacturing and industrial production.
-                Better operations. Stronger profitability.
+                Hands-on manufacturing consulting focused on better operations, stronger teams, and
+                measurable business performance.
               </p>
             </div>
 
@@ -22,7 +22,10 @@ export default function Footer() {
                   Headquarters
                 </p>
                 <address className="mt-2 flex items-center gap-2 not-italic text-sm text-slate-700 md:justify-end dark:text-slate-400">
-                  <MapPin className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
+                  <MapPin
+                    className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                    aria-hidden
+                  />
                   Hong Kong, HK
                 </address>
               </div>
@@ -31,28 +34,60 @@ export default function Footer() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Direct Contact
                 </p>
-                <a
-                  href="mailto:info@arsyconsulting.com"
-                  className="mt-2 inline-flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-emerald-600 md:justify-end dark:text-slate-400 dark:hover:text-emerald-400"
-                >
-                  <Mail className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
-                  info@arsyconsulting.com
-                </a>
+                <div className="mt-2 space-y-2">
+                  <a
+                    href="mailto:info@arsyconsulting.com"
+                    className="inline-flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-emerald-600 md:justify-end dark:text-slate-400 dark:hover:text-emerald-400"
+                  >
+                    <Mail
+                      className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                      aria-hidden
+                    />
+                    info@arsyconsulting.com
+                  </a>
+                  <a
+                    href="tel:+852800938238"
+                    className="flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-emerald-600 md:justify-end dark:text-slate-400 dark:hover:text-emerald-400"
+                  >
+                    <Phone
+                      className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                      aria-hidden
+                    />
+                    +852 800 938 238
+                  </a>
+                </div>
               </div>
 
               <div>
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Connect
                 </p>
-                <a
-                  href="https://www.linkedin.com/company/arsy-consult"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-2 inline-flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-emerald-600 md:justify-end dark:text-slate-400 dark:hover:text-emerald-400"
-                >
-                  <ExternalLink className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400" aria-hidden />
-                  LinkedIn
-                </a>
+                <div className="mt-2 space-y-2">
+                  <a
+                    href="https://www.linkedin.com/company/arsy-consult"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-emerald-600 md:justify-end dark:text-slate-400 dark:hover:text-emerald-400"
+                  >
+                    <ExternalLink
+                      className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                      aria-hidden
+                    />
+                    LinkedIn
+                  </a>
+                  <a
+                    href="https://www.instagram.com/arsyconsulting"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-emerald-600 md:justify-end dark:text-slate-400 dark:hover:text-emerald-400"
+                  >
+                    <ExternalLink
+                      className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                      aria-hidden
+                    />
+                    Instagram
+                  </a>
+                </div>
               </div>
             </div>
           </div>

@@ -4,13 +4,16 @@ import Image from "next/image";
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import {
   ArrowRight,
-  BarChart3,
-  ChartColumn,
+  Car,
   Check,
-  CircleDollarSign,
+  Cpu,
   Factory,
-  Layers,
-  Workflow,
+  FlaskConical,
+  HeartPulse,
+  Package,
+  Pill,
+  UtensilsCrossed,
+  Wrench,
   X,
   type LucideIcon,
 } from "lucide-react";
@@ -29,84 +32,144 @@ interface ServiceItem {
 
 const services: ServiceItem[] = [
   {
-    id: "operational-excellence",
-    title: "Operational Excellence",
-    tagline: "Structured & High-Performing Operations",
+    id: "food-beverage",
+    title: "Food & Beverage",
+    tagline: "Quality-Assured & Compliant Manufacturing",
     description:
-      "Build a more efficient, disciplined, and high-performing manufacturing operation. We optimize shop-floor workflows, enforce standard operating procedures (SOPs), and eliminate operational friction.",
+  "Improve production efficiency, reduce waste, and maintain consistent quality while meeting food safety and regulatory requirements.",
     fullText:
-      "Deep-dive analysis into line productivity, overall equipment effectiveness (OEE), and shop-floor workflow optimization. We eliminate bottlenecks to help your plant achieve maximum operational capacity while building discipline into daily routines.",
-    image: "/images/services/operational-excellence.jpg",
+  "Optimize yield, eliminate processing bottlenecks, and build reliable routines to ensure total operational compliance and consistent product quality across lines.",
+    image: "/images/services/food-beverage-production.png",
     capabilities: [
-      "OEE Improvement",
-      "Downtime Reduction",
-      "Standard Operating Procedures (SOPs)",
+  "Waste & Yield Optimization",
+  "Food Safety & Compliance",
+  "Quality Control & Line Efficiency",],
+    icon: UtensilsCrossed,
+  },
+  {
+    id: "pharmaceuticals",
+    title: "Pharmaceuticals",
+    tagline: "Compliant & High-Precision Manufacturing",
+    description:
+  "Strengthen manufacturing processes, improve operational efficiency, and support consistent quality in highly regulated production environments.",
+    fullText:
+  "Streamline pharmaceutical production workflows, maintain strict compliance standards, and ensure high yield while safeguarding batch integrity and product quality across lines.",
+    image: "/images/services/pharmaceuticals.png",
+    capabilities: [
+  "Regulatory & GMP Compliance",
+  "Batch Process Optimization",
+  "Quality Assurance & Control",],
+    icon: Pill,
+  },
+  {
+    id: "medical-devices",
+    title: "Medical Devices",
+    tagline: "Controlled & High-Precision Production",
+    description:
+  "Build reliable and controlled manufacturing processes that support product quality, regulatory compliance, and efficient production.",
+    fullText:
+  "Optimize medical device assembly and manufacturing workflows, maintain strict regulatory compliance, and ensure zero-defect quality standards across production lines.",
+    image: "/images/services/medical-devices.png",
+  capabilities: [
+  "Quality System & Regulatory Compliance",
+  "Assembly Line Optimization",
+  "Traceability & Defect Reduction",],
+    icon: HeartPulse,
+  },
+  {
+    id: "chemicals",
+title: "Chemicals",
+tagline: "Safe, Efficient & Controlled Processing",
+description:
+  "Improve process control, production efficiency, and workplace safety while reducing waste, downtime, and unnecessary operating costs.",
+fullText:
+  "Optimize chemical manufacturing workflows, enhance process stability, and implement robust safety protocols to lower operating costs and ensure peak operational yield.",
+image: "/images/services/chemicals.png",
+capabilities: [
+  "Process & Yield Optimization",
+  "EHS & Workplace Safety",
+  "Downtime & Waste Reduction",],
+
+    icon: FlaskConical,
+  },
+  {
+    id: "automotive",
+  title: "Automotive",
+  tagline: "Lean & High-Precision Manufacturing",
+    description:
+  "Optimize production flow, improve quality, reduce downtime, and create more efficient processes that support demanding automotive standards.",
+    fullText:
+  "Streamline assembly line workflows, eliminate operational bottlenecks, and enforce rigorous quality control to maximize throughput and meet strict automotive manufacturing standards.",
+    image: "/images/services/automotive.png",
+    capabilities: [
+  "Assembly Line & Flow Optimization",
+  "Downtime & Bottleneck Reduction",
+  "Quality Standards & Defect Control",],
+
+    icon: Car,
+  },
+  {
+   id: "electronics",
+title: "Electronics",
+tagline: "High-Precision & Fast-Paced Manufacturing",
+description:
+  "Increase production reliability and consistency by improving workflows, quality controls, and manufacturing processes in fast-moving production environments.",
+fullText:
+  "Optimize high-velocity electronics assembly lines, enhance yield rates, and implement rigorous quality checks to maintain consistency across fast-moving production schedules.",
+image: "/images/services/electronics.png",
+capabilities: [
+  "Workflow & Line Efficiency",
+  "Yield & Quality Control",
+  "Process Reliability & Defect Reduction",],
+    icon: Cpu,
+  },
+  {
+    id: "packaging",
+    title: "Packaging",
+    tagline: "High-Efficiency & Cost-Controlled Production",
+    description:
+      "Reduce production losses, improve line efficiency, and optimize processes to deliver consistent output while controlling operating costs.",
+    fullText:
+      "Optimize packaging line throughput, minimize material waste, and refine operational processes to maintain high output standards while keeping operating costs under control.",
+    image: "/images/services/packaging.png",
+    capabilities: [
+      "Line Efficiency & Speed",
+      "Waste & Loss Reduction",
+      "Process Optimization & Cost Control",
     ],
-    icon: BarChart3,
+    icon: Package,
   },
   {
-    id: "process-improvement",
-    title: "Process Improvement",
-    tagline: "Smarter Workflows & Bottleneck Removal",
+    id: "industrial-manufacturing",
+    title: "Industrial Manufacturing",
+    tagline: "Disciplined & High-Performance Operations",
     description:
-      "Identify line bottlenecks and create smarter, more streamlined processes. We utilize value-stream mapping and Lean principles to boost throughput and improve product consistency.",
+      "Identify bottlenecks, improve shop-floor performance, and establish more disciplined processes that help manufacturers operate efficiently and consistently.",
     fullText:
-      "Value-stream mapping and Lean manufacturing principles applied directly to production lines to streamline workflow speed and product consistency. We remove non-value-added steps that quietly erode capacity.",
-    image: "/images/services/process-improvement.jpg",
-    capabilities: ["Value-Stream Mapping", "Line Balancing", "Bottleneck Elimination"],
-    icon: Workflow,
-  },
-  {
-    id: "cost-efficiency",
-    title: "Cost & Efficiency Optimization",
-    tagline: "Reduce Waste & Control Operating Expenses",
-    description:
-      "Improve bottom-line margins without simply adding headcount. We audit yield losses, minimize raw material waste, and optimize utility usage across your facility.",
-    fullText:
-      "Data-driven strategies to reduce material yield loss, optimize utility/energy consumption, and eliminate non-value-added steps in production — protecting quality and safety while improving margins.",
-    image: "/images/services/cost-optimization.jpg",
-    capabilities: ["Yield Loss Control", "Raw Material Waste Audit", "Resource Allocation"],
-    icon: CircleDollarSign,
-  },
-  {
-    id: "production-capacity",
-    title: "Production & Capacity Optimization",
-    tagline: "Maximize Output From Existing Equipment",
-    description:
-      "Get significantly more throughput from your current machinery and plant footprint. We balance line speeds and eliminate unscheduled downtime without requiring major CAPEX investments.",
-    fullText:
-      "Unlock capacity already sitting inside your plant. We improve production flow, changeovers, workforce utilization, and line performance so you get more output from assets you already own.",
-    image: "/images/services/capacity-optimization.png",
-    capabilities: ["Line Speed Balancing", "Changeover Reduction", "Throughput Gains Without CapEx"],
+      "Streamline complex plant workflows, eliminate shop-floor bottlenecks, and instill operational discipline to ensure reliable, high-yield production across facilities.",
+    image: "/images/services/industrial-manufacturing.png",
+    capabilities: [
+      "Bottleneck & Flow Analysis",
+      "Shop-Floor Performance Optimization",
+      "Process Discipline & Standardization",
+    ],
     icon: Factory,
   },
   {
-    id: "kpi-performance",
-    title: "KPI & Performance Management",
-    tagline: "Turn Shop-Floor Data Into Action",
+    id: "machinery-equipment",
+    title: "Machinery & Equipment",
+    tagline: "Reliable Workflows & Downtime Reduction",
     description:
-      "Establish clear KPIs, real-time tracking dashboards, and frontline accountability. We install daily tier-meeting governance to ensure continuous performance tracking.",
+      "Improve manufacturing workflows, production planning, and process reliability while reducing avoidable downtime.",
     fullText:
-      "Implementing real-time shop-floor KPI tracking dashboards, daily tier-meeting governance, and frontline management accountability tools — so data drives action, not just reports.",
-    image: "/images/services/kpi-management.png",
-    capabilities: ["Custom KPI Dashboards", "Shop-floor Leadership", "Sustained Governance"],
-    icon: ChartColumn,
-  },
-  {
-    id: "operational-transformation",
-    title: "Operational Transformation",
-    tagline: "Lasting Cultural & Operational Change",
-    description:
-      "Drive full-scale plant transformation with hands-on leadership coaching. We help your teams adopt new operating standards that stick long after the project ends.",
-    fullText:
-      "Broader transformation programs covering processes, structure, performance management, leadership routines, and continuous improvement — moving from problem identification to lasting operational and cultural change.",
-    image: "/images/services/transformation.jpg",
+      "Enhance heavy equipment manufacturing workflows, refine master production planning, and build reliable processes to minimize downtime and maximize operational capacity.",
+    image: "/images/services/machinery-equipment.png",
     capabilities: [
-      "Leadership Coaching",
-      "New Operating Standards",
-      "Sustained Cultural Change",
+      "Production Planning & Scheduling",
+      "Downtime Reduction & Preventative Maintenance",
+      "Workflow & Reliability Optimization",
     ],
-    icon: Layers,
+    icon: Wrench,
   },
 ];
 
@@ -231,13 +294,12 @@ export default function Services() {
             Our Services
           </p>
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-            Turning Operational Challenges Into Measurable Results
+            Practical Solutions for Better Manufacturing Performance
           </h2>
           <p className="max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-            Arsy Consulting helps manufacturing companies improve productivity, reduce costs,
-            optimize processes, and build stronger, more profitable operations. We combine
-            operational expertise with a practical, results-driven approach — from identifying
-            opportunities to implementing sustainable improvements.
+            Arsy Consulting works with manufacturers across a wide rage of industries to improve operations,
+            control costs, and build more reliable processes. Our approach is practical and hands-on-focused on solving the issues that affect your people, 
+            production, quality, and bottom line,.
           </p>
         </FadeIn>
 
