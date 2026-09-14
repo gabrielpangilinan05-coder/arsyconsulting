@@ -22,7 +22,6 @@ import FadeIn from "@/components/FadeIn";
 interface ServiceItem {
   id: string;
   title: string;
-  tagline: string;
   description: string;
   fullText: string;
   image: string;
@@ -34,7 +33,6 @@ const services: ServiceItem[] = [
   {
     id: "food-beverage",
     title: "Food & Beverage",
-    tagline: "Quality-Assured & Compliant Manufacturing",
     description:
   "Improve production efficiency, reduce waste, and maintain consistent quality while meeting food safety and regulatory requirements.",
     fullText:
@@ -49,7 +47,6 @@ const services: ServiceItem[] = [
   {
     id: "pharmaceuticals",
     title: "Pharmaceuticals",
-    tagline: "Compliant & High-Precision Manufacturing",
     description:
   "Strengthen manufacturing processes, improve operational efficiency, and support consistent quality in highly regulated production environments.",
     fullText:
@@ -64,7 +61,6 @@ const services: ServiceItem[] = [
   {
     id: "medical-devices",
     title: "Medical Devices",
-    tagline: "Controlled & High-Precision Production",
     description:
   "Build reliable and controlled manufacturing processes that support product quality, regulatory compliance, and efficient production.",
     fullText:
@@ -79,7 +75,6 @@ const services: ServiceItem[] = [
   {
     id: "chemicals",
 title: "Chemicals",
-tagline: "Safe, Efficient & Controlled Processing",
 description:
   "Improve process control, production efficiency, and workplace safety while reducing waste, downtime, and unnecessary operating costs.",
 fullText:
@@ -95,7 +90,6 @@ capabilities: [
   {
     id: "automotive",
   title: "Automotive",
-  tagline: "Lean & High-Precision Manufacturing",
     description:
   "Optimize production flow, improve quality, reduce downtime, and create more efficient processes that support demanding automotive standards.",
     fullText:
@@ -111,7 +105,6 @@ capabilities: [
   {
    id: "electronics",
 title: "Electronics",
-tagline: "High-Precision & Fast-Paced Manufacturing",
 description:
   "Increase production reliability and consistency by improving workflows, quality controls, and manufacturing processes in fast-moving production environments.",
 fullText:
@@ -126,7 +119,6 @@ capabilities: [
   {
     id: "packaging",
     title: "Packaging",
-    tagline: "High-Efficiency & Cost-Controlled Production",
     description:
       "Reduce production losses, improve line efficiency, and optimize processes to deliver consistent output while controlling operating costs.",
     fullText:
@@ -142,7 +134,6 @@ capabilities: [
   {
     id: "industrial-manufacturing",
     title: "Industrial Manufacturing",
-    tagline: "Disciplined & High-Performance Operations",
     description:
       "Identify bottlenecks, improve shop-floor performance, and establish more disciplined processes that help manufacturers operate efficiently and consistently.",
     fullText:
@@ -158,7 +149,6 @@ capabilities: [
   {
     id: "machinery-equipment",
     title: "Machinery & Equipment",
-    tagline: "Reliable Workflows & Downtime Reduction",
     description:
       "Improve manufacturing workflows, production planning, and process reliability while reducing avoidable downtime.",
     fullText:
@@ -239,9 +229,6 @@ function ServiceModal({
         </div>
 
         <div className="p-6 md:p-8">
-          <p className="mb-2 text-xs font-bold uppercase tracking-wider text-emerald-500 dark:text-emerald-400">
-            {service.tagline}
-          </p>
           <h3 id={titleId} className="mb-3 text-2xl font-bold text-slate-900 dark:text-white">
             {service.title}
           </h3>
@@ -299,7 +286,7 @@ export default function Services() {
           <p className="max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
             Arsy Consulting works with manufacturers across a wide rage of industries to improve operations,
             control costs, and build more reliable processes. Our approach is practical and hands-on-focused on solving the issues that affect your people, 
-            production, quality, and bottom line,.
+            production, quality, and bottom line.
           </p>
         </FadeIn>
 
@@ -331,9 +318,6 @@ export default function Services() {
                       <h3 className="mb-1.5 text-base font-bold text-slate-900 sm:text-lg dark:text-white">
                         {service.title}
                       </h3>
-                      <p className="mb-1.5 text-xs font-semibold uppercase tracking-wide text-emerald-700 dark:text-emerald-400">
-                        {service.tagline}
-                      </p>
                       <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-400">
                         {service.description}
                       </p>

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Calculator } from "lucide-react";
+import { ArrowRight, Calculator } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
 
 const formatCurrency = (value: number) =>
@@ -144,8 +144,9 @@ export default function RoiEstimator() {
                 </p>
               </div>
 
-              <a href="#contact" className="btn-primary mt-6 w-full text-sm">
-                Validate with an Operational Audit
+              <a href="#contact" className="group/cta cta-contextual mt-6">
+                Explore Your Opportunity
+                <ArrowRight className="cta-arrow" aria-hidden />
               </a>
               <p className="mt-3 text-xs leading-relaxed text-slate-500 dark:text-slate-400">
                 Illustrative model only. Actual savings depend on facility maturity, product mix,

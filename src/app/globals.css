@@ -135,7 +135,33 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold text-white shadow-md transition hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600;
+  @apply inline-flex items-center justify-center gap-2.5 rounded-lg bg-emerald-600 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-md transition duration-200 hover:-translate-y-px hover:bg-emerald-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-emerald-600 motion-reduce:transform-none;
+}
+
+.cta-primary {
+  @apply inline-flex items-center justify-center gap-2.5 rounded-lg bg-emerald-600 px-6 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-emerald-950/25 transition duration-200 hover:-translate-y-px hover:bg-emerald-500 hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 motion-reduce:transform-none;
+}
+
+.cta-secondary {
+  @apply inline-flex items-center justify-center gap-2.5 rounded-lg border border-emerald-600/40 bg-emerald-600/90 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-white shadow-md transition duration-200 hover:-translate-y-px hover:bg-emerald-600 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 motion-reduce:transform-none;
+}
+
+.cta-contextual {
+  @apply inline-flex w-full items-center justify-center gap-2.5 rounded-lg border border-emerald-500/50 bg-emerald-50 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-emerald-800 shadow-sm transition duration-200 hover:-translate-y-px hover:border-emerald-500 hover:bg-emerald-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 focus-visible:ring-offset-2 motion-reduce:transform-none dark:border-emerald-500/40 dark:bg-emerald-500/10 dark:text-emerald-300 dark:hover:bg-emerald-500/15;
+}
+
+.cta-arrow {
+  @apply h-4 w-4 shrink-0 transition-transform duration-200 ease-out motion-reduce:transition-none;
+}
+
+.group\/cta:hover .cta-arrow {
+  transform: translateX(5px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .group\/cta:hover .cta-arrow {
+    transform: none;
+  }
 }
 
 .btn-secondary {

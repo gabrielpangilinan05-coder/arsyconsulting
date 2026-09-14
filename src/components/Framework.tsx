@@ -54,16 +54,9 @@ export default function Framework() {
     >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <FadeIn className="mb-8 max-w-2xl">
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
+          <h2 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
             Our Approach
-          </p>
-          <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-            Our Way of Working
           </h2>
-          <p className="max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-            A practical four-step approach that moves from understanding your operation to lasting
-            performance gains.
-          </p>
         </FadeIn>
 
         <div className="relative mt-8">

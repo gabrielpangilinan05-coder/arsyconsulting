@@ -25,10 +25,10 @@ export default function ValueBanner() {
         </p>
         <a
           href="#contact"
-          className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-emerald-700"
+          className="group/cta mt-5 inline-flex items-center justify-center gap-2.5 rounded-lg border border-emerald-600/30 bg-transparent px-6 py-3 text-sm font-semibold uppercase tracking-wide text-emerald-700 transition duration-200 hover:-translate-y-px hover:border-emerald-600 hover:bg-emerald-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 motion-reduce:transform-none dark:text-emerald-400 dark:hover:bg-emerald-500/10"
         >
           Talk to Arsy Consulting
-          <ArrowRight className="h-4 w-4" aria-hidden />
+          <ArrowRight className="cta-arrow" aria-hidden />
         </a>
       </FadeIn>
     </section>

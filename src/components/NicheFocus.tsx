@@ -9,9 +9,7 @@ import {
   DollarSign,
   Factory,
   PieChart,
-  ShieldAlert,
   ShieldCheck,
-  SlidersHorizontal,
   TrendingUp,
   X,
   Zap,
@@ -23,7 +21,6 @@ import { IndustryTicker } from "@/components/IndustryTicker";
 interface IndustryItem {
   id: string;
   title: string;
-  subtitle: string;
   badge: string;
   shortText: string;
   image: string;
@@ -35,7 +32,6 @@ const industries: IndustryItem[] = [
   {
     id: "operational-excellence",
     title: "Operational Excellence",
-    subtitle: "Standardized Work, SOPs & Daily Management",
     badge: "Operational Discipline",
     shortText:
       "Streamline workflows, strengthen standard operating procedures, and create more efficient day-to-day operations.",
@@ -51,7 +47,6 @@ const industries: IndustryItem[] = [
   {
     id: "cost-reduction",
     title: "Cost Reduction",
-    subtitle: "Profitability, Margin Protection & Loss Elimination",
     badge: "Margin & Profitability",
     shortText:
       "Identify unnecessary costs, production losses, and inefficiencies that impact your margins.",
@@ -67,7 +62,6 @@ const industries: IndustryItem[] = [
   {
     id: "process-improvement",
     title: "Process Improvement",
-    subtitle: "Bottleneck Removal, Value Stream & Cycle Time",
     badge: "Throughput & Flow",
     shortText:
       "Find bottlenecks and improve the way work moves through your facility—from production to delivery.",
@@ -83,7 +77,6 @@ const industries: IndustryItem[] = [
   {
     id: "quality-consistency",
     title: "Quality & Consistency",
-    subtitle: "Defect Reduction, Rework Elimination & Waste Control",
     badge: "Zero Defects & Standards",
     shortText:
       "Build processes that produce more consistent results and reduce defects, rework, and waste.",
@@ -99,7 +92,6 @@ const industries: IndustryItem[] = [
   {
     id: "productivity-improvement",
     title: "Productivity Improvement",
-    subtitle: "Asset Performance, OEE & Labor Efficiency",
     badge: "Capacity & Utilization",
     shortText:
       "Help your people and equipment perform more effectively without simply adding more resources.",
@@ -115,7 +107,6 @@ const industries: IndustryItem[] = [
   {
     id: "sustainable-improvements",
     title: "Sustainable Improvements",
-    subtitle: "Long-Term Systems, Kaizen & Operational Culture",
     badge: "Continuous Improvement",
     shortText:
       "Put practical systems in place so improvements continue long after the consulting engagement ends.",
@@ -126,34 +117,6 @@ const industries: IndustryItem[] = [
       "Operational Governance",
     ],
     image: "/images/services/transformation.jpg",
-    icon: PieChart,
-  },
-];
-
-const pillars: { title: string; copy: string; icon: LucideIcon }[] = [
-  {
-    title: "Increase Productivity",
-    copy: "Get more output from available resources.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Reduce Operational Costs",
-    copy: "Identify and eliminate unnecessary losses.",
-    icon: DollarSign,
-  },
-  {
-    title: "Improve Efficiency",
-    copy: "Build smarter and more reliable processes.",
-    icon: SlidersHorizontal,
-  },
-  {
-    title: "Strengthen Performance",
-    copy: "Create visibility, accountability, and continuous improvement.",
-    icon: ShieldAlert,
-  },
-  {
-    title: "Increase Profitability",
-    copy: "Translate operational improvements into financial results.",
     icon: PieChart,
   },
 ];
@@ -233,9 +196,6 @@ function IndustryModal({
           >
             {industry.title}
           </h3>
-          <p className="mt-2 text-sm font-semibold text-slate-500 dark:text-slate-400">
-            {industry.subtitle}
-          </p>
           <p className="mt-4 mb-6 text-base leading-relaxed text-slate-600 dark:text-slate-300">
             {industry.shortText}
           </p>
@@ -282,18 +242,12 @@ export default function NicheFocus() {
     >
       <div className="mx-auto max-w-6xl px-5 lg:px-8">
         <FadeIn className="mb-8 max-w-3xl">
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
-            Industries We Serve
-          </p>
           <h2 className="mb-3 text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl dark:text-white">
-            Manufacturing Expertise Across Industries
+            What We Help You Improve
           </h2>
           <p className="max-w-3xl text-sm leading-relaxed text-slate-600 sm:text-base dark:text-slate-300">
-            Every manufacturing environment is different, but the challenges are often similar:
-            increasing costs, production losses, capacity constraints, quality issues, inefficient
-            processes, and pressure to deliver more with existing resources. Arsy Consulting works
-            with manufacturing companies to turn these challenges into opportunities for measurable
-            improvement.
+            We don&apos;t just identify problems—we work with your team to turn them into measurable
+            improvements.
           </p>
         </FadeIn>
 
@@ -339,9 +293,6 @@ export default function NicheFocus() {
                     <h3 className="mb-1.5 text-base font-bold text-slate-900 sm:text-lg dark:text-white">
                       {industry.title}
                     </h3>
-                    <p className="mb-2 text-xs font-semibold text-emerald-700 dark:text-emerald-400">
-                      {industry.subtitle}
-                    </p>
                     <p className="text-xs leading-relaxed text-slate-600 sm:text-sm dark:text-slate-400">
                       {industry.shortText}
                     </p>
@@ -358,58 +309,6 @@ export default function NicheFocus() {
             );
           })}
         </div>
-
-        <div className="mt-12">
-          <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
-            Let&apos;s Improve Your Operations
-          </p>
-
-          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            {pillars.map((item, index) => {
-              const Icon = item.icon;
-              return (
-                <motion.div
-                  key={item.title}
-                  initial={{ opacity: 0, y: 25 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  whileHover={{ y: -6 }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group flex flex-col justify-between rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:border-emerald-500/50 hover:shadow-lg hover:shadow-emerald-500/10 dark:border-slate-800 dark:bg-slate-900/80 dark:hover:border-emerald-500/50 dark:hover:bg-slate-900 dark:hover:shadow-emerald-900/20"
-                >
-                  <div>
-                    <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl border border-emerald-500/20 bg-emerald-500/10 text-emerald-600 transition-all duration-300 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white dark:text-emerald-400 dark:group-hover:text-slate-950">
-                      <Icon className="h-5 w-5" aria-hidden />
-                    </div>
-                    <h3 className="mb-2 text-base font-bold text-slate-900 transition-colors group-hover:text-emerald-700 dark:text-white dark:group-hover:text-emerald-300">
-                      {item.title}
-                    </h3>
-                    <p className="text-xs leading-relaxed text-slate-500 dark:text-slate-400">
-                      {item.copy}
-                    </p>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-
-        <FadeIn className="my-8 rounded-2xl border border-emerald-200 bg-emerald-900/10 p-6 text-center sm:p-8 dark:border-emerald-800/50 dark:bg-emerald-950/40">
-          <h3 className="mb-2 text-xl font-bold text-slate-900 sm:text-2xl dark:text-white">
-            Your Industry. Your Challenges. Our Focus on Results.
-          </h3>
-          <p className="mx-auto max-w-xl text-sm text-slate-600 dark:text-slate-300">
-            Every transformation starts by understanding where the biggest opportunities are. Arsy
-            Consulting works with your organization to identify those opportunities and turn them
-            into sustainable operational improvements.
-          </p>
-          <a
-            href="#contact"
-            className="mt-5 inline-flex items-center justify-center rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-emerald-700"
-          >
-            Let&apos;s discover your improvement potential
-          </a>
-        </FadeIn>
       </div>
 
       {activeIndustry && <IndustryModal industry={activeIndustry} onClose={closeModal} />}

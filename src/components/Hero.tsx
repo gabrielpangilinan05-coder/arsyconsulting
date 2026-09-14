@@ -40,10 +40,10 @@ export default function Hero() {
             </p>
             <a
               href="#contact"
-              className="mt-7 inline-flex items-center justify-center gap-2 rounded-md bg-[#b89355] px-6 py-3 text-sm font-bold uppercase tracking-wide text-white shadow-md transition-all hover:bg-[#a6824a]"
+              className="group/cta mt-7 inline-flex items-center justify-center gap-2.5 rounded-md bg-[#b89355] px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-[#b89355]/30 transition duration-200 hover:-translate-y-px hover:bg-[#a6824a] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b89355] focus-visible:ring-offset-2 motion-reduce:transform-none"
             >
               Request a Consultation
-              <ArrowRight className="h-4 w-4" aria-hidden />
+              <ArrowRight className="cta-arrow" aria-hidden />
             </a>
           </FadeIn>
         </div>

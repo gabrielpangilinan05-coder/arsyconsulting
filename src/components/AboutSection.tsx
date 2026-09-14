@@ -148,10 +148,10 @@ export default function AboutSection() {
           </p>
           <a
             href="#contact"
-            className="mt-5 inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-emerald-700"
+            className="group/cta cta-secondary mt-5"
           >
-            Let&apos;s build better operations together
-            <ArrowRight className="h-4 w-4" aria-hidden />
+            Let&apos;s Build Better Operations Together
+            <ArrowRight className="cta-arrow" aria-hidden />
           </a>
         </FadeIn>
       </div>

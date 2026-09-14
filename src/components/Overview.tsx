@@ -54,10 +54,10 @@ export default function Overview() {
           </p>
           <a
             href="#contact"
-            className="inline-flex items-center justify-center gap-2 rounded-xl bg-emerald-600 px-6 py-3 text-sm font-bold text-white shadow-md transition-all hover:bg-emerald-700"
+            className="group/cta cta-primary"
           >
-            SCHEDULE A CONSULTATION
-            <ArrowRight className="h-4 w-4" aria-hidden />
+            Schedule a Consultation
+            <ArrowRight className="cta-arrow" aria-hidden />
           </a>
         </FadeIn>
       </div>
