@@ -61,7 +61,7 @@ export default function FounderSection() {
               id="founder-name"
               className="text-[1.65rem] font-bold tracking-tight text-white sm:text-[2rem] lg:text-[2.15rem]"
             >
-              Ugur Arslan
+              U. Arslan
             </h3>
             <p className="mt-2 text-[13px] font-medium text-emerald-400">
               Founder &amp; CEO, Arsy Consulting
@@ -76,7 +76,7 @@ export default function FounderSection() {
 
             <div className="space-y-3.5 text-[13px] leading-[1.75] text-white/72 sm:text-sm sm:leading-[1.8]">
               <p>
-                Ugur Arslan built his career around one goal:{" "}
+                U. Arslan built his career around one goal:{" "}
                 <strong className="font-semibold text-white/90">
                   making manufacturing work better.
                 </strong>
