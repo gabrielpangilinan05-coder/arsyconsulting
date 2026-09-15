@@ -57,15 +57,7 @@ export default function AboutSection() {
       </div>
 
       <div className="pb-8 lg:pb-10">
-        <div className="mx-auto max-w-6xl px-5 lg:px-8">
-          <FadeIn>
-            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-emerald-500 dark:text-emerald-400">
-              Meet Our Founder &amp; CEO
-            </p>
-          </FadeIn>
-
-          <FounderSection />
-        </div>
+        <FounderSection />
       </div>
 
       <div className="pb-8 lg:pb-10">

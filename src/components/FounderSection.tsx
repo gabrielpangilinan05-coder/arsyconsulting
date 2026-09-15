@@ -1,57 +1,83 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Quote, User } from "lucide-react";
+import { motion, useReducedMotion } from "framer-motion";
+import { User } from "lucide-react";
 
 export default function FounderSection() {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <div className="relative mt-4">
-      <div
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-r from-emerald-500/10 via-teal-500/5 to-transparent blur-3xl"
-        aria-hidden
-      />
+    <section aria-labelledby="founder-name" className="mx-auto w-full max-w-[72rem] px-6">
+      <p className="mb-7 text-center text-[11px] font-semibold uppercase tracking-[0.16em] text-emerald-600 dark:text-emerald-400">
+        Meet Our Founder &amp; CEO
+      </p>
 
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
+        initial={reduceMotion ? false : { opacity: 0, y: 24 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="relative overflow-hidden rounded-3xl border border-slate-800 bg-slate-900/60 p-8 shadow-2xl backdrop-blur-md lg:p-12"
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.55, ease: "easeOut" }}
+        className="group relative overflow-hidden rounded-[20px] border border-white/[0.08] shadow-[0_20px_60px_-28px_rgba(2,6,23,0.7)] transition-shadow duration-300 hover:shadow-[0_24px_70px_-24px_rgba(2,6,23,0.75)]"
+        style={{
+          background:
+            "linear-gradient(135deg, #0b1324 0%, #0d1728 55%, #09252d 100%)",
+        }}
       >
-        <div className="grid gap-10 lg:grid-cols-[240px_1fr] lg:gap-12">
-          <div className="flex flex-col items-center justify-center text-center">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="flex h-32 w-32 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-400 ring-2 ring-emerald-500/30 shadow-[0_0_20px_rgba(16,185,129,0.2)]"
-            >
-              <User className="h-14 w-14" aria-hidden />
-            </motion.div>
-            <p className="mt-4 text-xs font-medium uppercase tracking-wide text-slate-400">
-              Photo coming soon
-            </p>
-          </div>
+        <div
+          className="pointer-events-none absolute -bottom-24 -left-16 h-72 w-72 rounded-full bg-emerald-500/[0.06] blur-3xl"
+          aria-hidden
+        />
 
-          <div>
-            <h3 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
+        <div className="relative grid gap-8 p-6 sm:gap-9 sm:p-10 lg:grid-cols-[minmax(230px,260px)_1fr] lg:gap-12 lg:p-12 xl:p-14">
+          {/* Portrait column ~35% */}
+          <aside className="flex flex-col items-center lg:items-start">
+            <motion.div
+              whileHover={reduceMotion ? undefined : { scale: 1.015 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="relative flex h-[300px] w-[240px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-emerald-500/25 bg-[#101D30] sm:h-[310px] sm:w-[250px]"
+            >
+              <div
+                className="absolute inset-0 bg-gradient-to-t from-[#0b1324]/80 via-transparent to-emerald-500/[0.04]"
+                aria-hidden
+              />
+              <div className="relative z-10 flex flex-col items-center gap-3 px-4 text-center">
+                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400">
+                  <User className="h-8 w-8" aria-hidden />
+                </div>
+                <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-slate-400">
+                  Photo coming soon
+                </p>
+              </div>
+            </motion.div>
+
+            <span className="mt-5 inline-flex rounded-full border border-emerald-500/40 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-emerald-400">
+              Founder &amp; CEO
+            </span>
+          </aside>
+
+          {/* Editorial column ~65% */}
+          <div className="min-w-0 max-w-[42rem] text-left">
+            <h3
+              id="founder-name"
+              className="text-[1.65rem] font-bold tracking-tight text-white sm:text-[2rem] lg:text-[2.15rem]"
+            >
               Ugur Arslan
             </h3>
-            <p className="mt-1 text-sm font-semibold italic text-emerald-400">
+            <p className="mt-2 text-[13px] font-medium text-emerald-400">
               Founder &amp; CEO, Arsy Consulting
             </p>
 
-            <blockquote className="mt-6 flex gap-3 rounded-r-xl border-l-4 border-emerald-500 bg-emerald-950/20 p-4 transition-colors hover:bg-emerald-950/30">
-              <Quote className="mt-0.5 h-5 w-5 shrink-0 text-emerald-400" aria-hidden />
-              <p className="text-sm font-medium italic leading-relaxed text-slate-200">
+            <blockquote className="my-6 rounded-r-[10px] border-l-2 border-emerald-500 bg-[#0a1520]/80 px-[17px] py-4">
+              <p className="text-[15px] font-medium italic leading-[1.6] text-white/85 sm:text-base">
                 I&apos;ve experienced manufacturing from the inside—as an employee, a leader, and now
                 as a business owner.
               </p>
             </blockquote>
 
-            <div className="mt-6 space-y-4 text-sm leading-relaxed text-slate-300">
+            <div className="space-y-3.5 text-[13px] leading-[1.75] text-white/72 sm:text-sm sm:leading-[1.8]">
               <p>
                 Ugur Arslan built his career around one goal:{" "}
-                <strong className="font-semibold text-white">
+                <strong className="font-semibold text-white/90">
                   making manufacturing work better.
                 </strong>
               </p>
@@ -81,11 +107,11 @@ export default function FounderSection() {
               </p>
             </div>
 
-            <div className="mt-6 rounded-r-xl border-l-4 border-emerald-500 bg-emerald-950/20 p-4 transition-colors hover:bg-emerald-950/30">
-              <p className="text-xs font-bold uppercase tracking-wide text-emerald-400">
-                His Philosophy Is Straightforward
+            <div className="mt-8 rounded-[11px] border border-[rgba(0,180,160,0.35)] bg-[rgba(0,150,130,0.05)] p-[17px] transition-colors duration-300 hover:border-[rgba(0,180,160,0.5)]">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-400">
+                Our Operating Philosophy
               </p>
-              <p className="mt-2 text-sm font-medium leading-relaxed text-slate-200">
+              <p className="mt-2.5 text-[14px] font-medium leading-[1.6] text-white sm:text-[15px]">
                 Don&apos;t just point out the problem. Understand it. Fix it. Make the improvement
                 last.
               </p>
@@ -93,6 +119,6 @@ export default function FounderSection() {
           </div>
         </div>
       </motion.div>
-    </div>
+    </section>
   );
 }
