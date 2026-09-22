@@ -21,12 +21,25 @@ export default function Footer() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Headquarters
                 </p>
-                <address className="mt-2 flex items-center gap-2 not-italic text-sm text-slate-700 md:justify-end dark:text-slate-400">
-                  <MapPin
-                    className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
-                    aria-hidden
-                  />
-                  Hong Kong, HK
+                <address className="mt-2 not-italic text-sm md:ml-auto md:max-w-[16rem]">
+                  <a
+                    href="https://www.google.com/maps/dir/?api=1&destination=Hopewell+Centre,+3308A,+33/F,+183+Queen's+Road+East,+Wanchai,+Hong+Kong"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-start gap-2 text-left text-slate-700 transition-colors hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400"
+                  >
+                    <MapPin
+                      className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
+                      aria-hidden
+                    />
+                    <span className="leading-relaxed">
+                      Hopewell Centre, 3308A, 33/F.
+                      <br />
+                      183 Queen’s Road East
+                      <br />
+                      Wanchai, Hong Kong
+                    </span>
+                  </a>
                 </address>
               </div>
 
