@@ -6,12 +6,12 @@ import ThemeToggle from "@/components/ThemeToggle";
 import Logo from "@/components/Logo";
 
 const links = [
-  { href: "#services", label: "Services" },
-  { href: "#industries", label: "Industries" },
-  { href: "#approach", label: "Approach" },
-  { href: "#about", label: "About" },
-  { href: "#roi-estimator", label: "ROI Estimator" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#services", label: "Services" },
+  { href: "/#industries", label: "Industries" },
+  { href: "/#approach", label: "Approach" },
+  { href: "/#about", label: "About" },
+  { href: "/#roi-estimator", label: "ROI Estimator" },
+  { href: "/#contact", label: "Contact" },
 ];
 
 export default function Header() {
@@ -29,7 +29,7 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-all dark:border-slate-800/60 dark:bg-slate-950/80">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
-        <a href="#top" className="flex items-center gap-2" aria-label="Arsy Consulting home">
+        <a href="/" className="flex items-center gap-2" aria-label="Arsy Consulting home">
           <Logo circular priority />
         </a>
 
@@ -48,7 +48,7 @@ export default function Header() {
         <div className="hidden items-center gap-3 md:flex">
           <ThemeToggle />
           <a
-            href="#contact"
+            href="/#contact"
             className="rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white transition-all hover:bg-emerald-500"
           >
             Request Audit
@@ -89,7 +89,7 @@ export default function Header() {
               </a>
             ))}
             <a
-              href="#contact"
+              href="/#contact"
               className="mt-2 rounded-lg bg-emerald-600 px-4 py-2 text-center text-sm font-medium text-white transition-all hover:bg-emerald-500"
               onClick={() => setOpen(false)}
             >

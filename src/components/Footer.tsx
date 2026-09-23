@@ -21,12 +21,12 @@ export default function Footer() {
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                   Headquarters
                 </p>
-                <address className="mt-2 not-italic text-sm md:ml-auto md:max-w-[16rem]">
+                <address className="mt-2 not-italic text-sm">
                   <a
                     href="https://www.google.com/maps/dir/?api=1&destination=Hopewell+Centre,+3308A,+33/F,+183+Queen's+Road+East,+Wanchai,+Hong+Kong"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-start gap-2 text-left text-slate-700 transition-colors hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400"
+                    className="inline-flex items-start gap-2 text-slate-700 transition-colors hover:text-emerald-600 dark:text-slate-400 dark:hover:text-emerald-400"
                   >
                     <MapPin
                       className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
@@ -106,7 +106,27 @@ export default function Footer() {
           </div>
 
           <div className="mt-8 flex flex-col gap-2 border-t border-slate-200 pt-6 text-xs text-slate-500 dark:border-slate-800 sm:flex-row sm:items-center sm:justify-between">
-            <p>© 2026 Arsy Consulting. All rights reserved.</p>
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:gap-3">
+              <p>© 2026 Arsy Consulting. All rights reserved.</p>
+              <span className="hidden text-slate-300 sm:inline dark:text-slate-700" aria-hidden>
+                |
+              </span>
+              <p className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                <a
+                  href="/privacy-policy"
+                  className="transition-colors hover:text-emerald-600 dark:hover:text-emerald-400"
+                >
+                  Privacy Policy
+                </a>
+                <span aria-hidden>|</span>
+                <a
+                  href="/terms"
+                  className="transition-colors hover:text-emerald-600 dark:hover:text-emerald-400"
+                >
+                  Terms and Conditions
+                </a>
+              </p>
+            </div>
             <p>Operational Excellence. Stronger Teams. Better Performance.</p>
           </div>
         </FadeIn>

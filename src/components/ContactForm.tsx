@@ -66,6 +66,9 @@ export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
+  const [consentNonMarketing, setConsentNonMarketing] = useState(false);
+  const [consentMarketing, setConsentMarketing] = useState(false);
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   const closeRef = useRef<HTMLButtonElement>(null);
   const isDark = themeReady && resolvedTheme === "dark";
@@ -131,6 +134,9 @@ export default function ContactForm() {
     company: formData.company.trim(),
     location: formData.location.trim(),
     challenge: formData.challenge.trim(),
+    consentNonMarketing,
+    consentMarketing,
+    agreedToTerms,
     discoveryCall:
       selectedDate && selectedTime
         ? {
@@ -147,7 +153,9 @@ export default function ContactForm() {
 
     try {
       const payload = buildPayload();
-      const response = await fetch("/api/audit-request", {
+      const endpoint =
+        process.env.NEXT_PUBLIC_FORM_ENDPOINT?.trim() || "/api/audit-request";
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -169,6 +177,9 @@ export default function ContactForm() {
         location: "",
         challenge: "",
       });
+      setConsentNonMarketing(false);
+      setConsentMarketing(false);
+      setAgreedToTerms(false);
       setSelectedTime("");
       setValidationError("");
       setIsSubmitted(true);
@@ -188,11 +199,20 @@ export default function ContactForm() {
   const handleAuditSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (!validateContact()) return;
+    if (!agreedToTerms) {
+      setValidationError("Please agree to the Privacy Policy and Terms and Conditions.");
+      return;
+    }
     await finishSubmit();
   };
 
   const handleConfirmCall = async () => {
     if (!validateContact()) return;
+    if (!agreedToTerms) {
+      setValidationError("Please agree to the Privacy Policy and Terms and Conditions.");
+      setIsModalOpen(false);
+      return;
+    }
     if (!selectedDate) {
       setValidationError("Please select an available date.");
       return;
@@ -256,6 +276,9 @@ export default function ContactForm() {
                     setSubmittedName("");
                     setSubmitError("");
                     setValidationError("");
+                    setConsentNonMarketing(false);
+                    setConsentMarketing(false);
+                    setAgreedToTerms(false);
                   }}
                   className="text-xs font-semibold text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
                 >
@@ -346,6 +369,66 @@ export default function ContactForm() {
                   </p>
                 )}
 
+                <div className="space-y-3">
+                  <label className="flex cursor-pointer items-start gap-2.5 text-left text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                    <input
+                      type="checkbox"
+                      checked={consentNonMarketing}
+                      onChange={(e) => setConsentNonMarketing(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-950"
+                    />
+                    <span>
+                      I consent to receive non-marketing text messages from Arsy Consulting
+                      regarding operational consulting inquiries. Message frequency varies,
+                      message &amp; data rates may apply. Reply HELP for assistance, reply STOP
+                      to opt out.
+                    </span>
+                  </label>
+
+                  <label className="flex cursor-pointer items-start gap-2.5 text-left text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                    <input
+                      type="checkbox"
+                      checked={consentMarketing}
+                      onChange={(e) => setConsentMarketing(e.target.checked)}
+                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-950"
+                    />
+                    <span>
+                      I consent to receive marketing text messages from Arsy Consulting regarding
+                      promotional updates and insights. Message frequency varies, message &amp;
+                      data rates may apply. Reply HELP for assistance, reply STOP to opt out.
+                    </span>
+                  </label>
+
+                  <label className="flex cursor-pointer items-start gap-2.5 text-left text-xs leading-relaxed text-slate-600 dark:text-slate-400">
+                    <input
+                      type="checkbox"
+                      checked={agreedToTerms}
+                      onChange={(e) => {
+                        setAgreedToTerms(e.target.checked);
+                        if (e.target.checked && validationError) setValidationError("");
+                      }}
+                      className="mt-0.5 h-4 w-4 shrink-0 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500/20 dark:border-slate-600 dark:bg-slate-950"
+                    />
+                    <span>
+                      I agree to the{" "}
+                      <a
+                        href="/privacy-policy"
+                        className="underline-offset-2 hover:text-emerald-600 hover:underline dark:hover:text-emerald-400"
+                      >
+                        Privacy Policy
+                      </a>{" "}
+                      and{" "}
+                      <a
+                        href="/terms"
+                        className="underline-offset-2 hover:text-emerald-600 hover:underline dark:hover:text-emerald-400"
+                      >
+                        Terms and Conditions
+                      </a>
+                      .
+                    </span>
+                  </label>
+                </div>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
@@ -353,6 +436,22 @@ export default function ContactForm() {
                 >
                   {isSubmitting ? "Sending…" : "Submit Audit Request"}
                 </button>
+
+                <p className="text-center text-xs text-slate-500 dark:text-slate-400">
+                  <a
+                    href="/privacy-policy"
+                    className="underline-offset-2 hover:text-emerald-600 hover:underline dark:hover:text-emerald-400"
+                  >
+                    Privacy Policy
+                  </a>
+                  {" | "}
+                  <a
+                    href="/terms"
+                    className="underline-offset-2 hover:text-emerald-600 hover:underline dark:hover:text-emerald-400"
+                  >
+                    Terms and Conditions
+                  </a>
+                </p>
 
                 <div className="flex flex-col items-start justify-between gap-3 border-t border-slate-200 pt-4 text-xs text-slate-500 sm:flex-row sm:items-center dark:border-slate-800/80 dark:text-slate-400">
                   <span>Prefer to book a call directly instead?</span>

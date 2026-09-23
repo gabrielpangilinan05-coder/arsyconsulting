@@ -31,11 +31,24 @@ export async function POST(req: Request) {
     const company = String(body.company ?? "").trim();
     const location = String(body.location ?? "").trim();
     const challenge = String(body.challenge ?? "").trim();
+    const consentNonMarketing = Boolean(body.consentNonMarketing);
+    const consentMarketing = Boolean(body.consentMarketing);
+    const agreedToTerms = Boolean(body.agreedToTerms);
     const discoveryCall = body.discoveryCall ?? null;
 
     if (!fullName || !email) {
       return NextResponse.json(
         { success: false, error: "Full name and business email are required." },
+        { status: 400 },
+      );
+    }
+
+    if (!agreedToTerms) {
+      return NextResponse.json(
+        {
+          success: false,
+          error: "Please agree to the Privacy Policy and Terms and Conditions.",
+        },
         { status: 400 },
       );
     }
@@ -50,7 +63,7 @@ export async function POST(req: Request) {
       from: "Arsy Audit Form <onboarding@resend.dev>",
       to: AUDIT_RECIPIENT,
       replyTo: email,
-      subject: "[TEST] New Audit Request - Arsy Consulting",
+      subject: "New Audit Request - Arsy Consulting",
       html: `
         <div style="font-family: Arial, sans-serif; color: #0f172a; line-height: 1.5;">
           <h2 style="margin: 0 0 16px; color: #059669;">New Audit Request Submission</h2>
@@ -63,6 +76,9 @@ export async function POST(req: Request) {
           <blockquote style="background: #f1f5f9; padding: 12px 14px; border-left: 4px solid #059669; margin: 8px 0 0; white-space: pre-wrap;">
             ${escapeHtml(challenge || "—")}
           </blockquote>
+          <p style="margin-top: 16px;"><strong>SMS Consent (Non-marketing):</strong> ${consentNonMarketing ? "Yes" : "No"}</p>
+          <p><strong>SMS Consent (Marketing):</strong> ${consentMarketing ? "Yes" : "No"}</p>
+          <p><strong>Privacy Policy &amp; Terms:</strong> ${agreedToTerms ? "Agreed" : "No"}</p>
         </div>
       `,
     });
