@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
@@ -103,6 +104,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="flex min-h-full flex-col bg-slate-50 font-sans text-slate-900 antialiased dark:bg-slate-950 dark:text-white">
         <ThemeProvider>{children}</ThemeProvider>
+        <Script
+          src="https://link.msgsndr.com/js/external-tracking.js"
+          strategy="afterInteractive"
+          data-tracking-id="tk_026263d204074b98a313af860289c0c6"
+        />
       </body>
     </html>
   );

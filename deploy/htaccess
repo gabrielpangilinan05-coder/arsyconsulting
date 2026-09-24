@@ -1,0 +1,43 @@
+# Arsy Consulting — Apache rules for static Next.js export on cPanel
+
+Options -Indexes
+DirectoryIndex index.html
+
+# Map the form endpoint used by the site to the PHP handler
+RewriteEngine On
+RewriteRule ^api/audit-request/?$ api/audit-request.php [L,QSA]
+
+# Serve trailing-slash folders (Next export with trailingSlash: true)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !/$
+RewriteCond %{REQUEST_URI} !\.
+RewriteRule ^(.*)$ /$1/ [R=301,L]
+
+# Force HTTPS when the domain is live (skip IP / temp userdir URLs)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP_HOST} ^(www\.)?arsyconsulting\.com$ [NC]
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# Cache static assets
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set X-Frame-Options "SAMEORIGIN"
+</IfModule>
+
+# Block access to local PHP config if present
+<Files "config.local.php">
+  Require all denied
+</Files>

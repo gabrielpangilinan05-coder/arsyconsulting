@@ -1,7 +1,9 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const AUDIT_RECIPIENT = "gabrielpangilinan05@gmail.com";
+// Local/dev default. Live cPanel uses deploy/api config (info@arsyconsulting.com).
+const AUDIT_RECIPIENT =
+  process.env.AUDIT_RECIPIENT?.trim() || "gabrielpangilinan05@gmail.com";
 
 function escapeHtml(value: unknown) {
   return String(value ?? "")
@@ -28,6 +30,7 @@ export async function POST(req: Request) {
     const body = await req.json();
     const fullName = String(body.fullName ?? "").trim();
     const email = String(body.email ?? "").trim();
+    const phone = String(body.phone ?? "").trim();
     const company = String(body.company ?? "").trim();
     const location = String(body.location ?? "").trim();
     const challenge = String(body.challenge ?? "").trim();
@@ -69,6 +72,7 @@ export async function POST(req: Request) {
           <h2 style="margin: 0 0 16px; color: #059669;">New Audit Request Submission</h2>
           <p><strong>Full Name:</strong> ${escapeHtml(fullName)}</p>
           <p><strong>Business Email:</strong> ${escapeHtml(email)}</p>
+          <p><strong>Phone Number:</strong> ${escapeHtml(phone || "—")}</p>
           <p><strong>Company Name:</strong> ${escapeHtml(company || "—")}</p>
           <p><strong>Plant / Facility Location:</strong> ${escapeHtml(location || "—")}</p>
           ${discoveryHtml}

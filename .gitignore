@@ -33,6 +33,9 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
+# cPanel PHP secrets (copy from config.example.php on the server only)
+**/config.local.php
+
 # vercel
 .vercel
 
