@@ -1,8 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, BarChart3, Cog, Users } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+
+const highlights = [
+  { icon: BarChart3, label: "Higher Efficiency" },
+  { icon: Cog, label: "Optimized Operations" },
+  { icon: Users, label: "Stronger Teams" },
+];
 
 const metrics = [
   { value: "15–30%", label: "Typical cost reduction potential" },
@@ -16,64 +22,74 @@ export default function Hero() {
       id="top"
       className="mt-0 border-b border-slate-200 bg-slate-50 pt-0 text-slate-900 dark:border-slate-800 dark:bg-slate-950 dark:text-white"
     >
-      {/*
-        Mobile: one composition — full-bleed plant image with copy overlaid.
-        Desktop: split panel — copy left, image right.
-      */}
-      <div className="relative grid min-h-[calc(100svh-4.75rem)] w-full overflow-hidden sm:min-h-[520px] lg:min-h-[560px] lg:grid-cols-2">
-        <div className="absolute inset-0 lg:relative lg:col-start-2 lg:row-start-1 lg:min-h-full">
-          <Image
-            src="/images/plant-floor.png"
-            alt="Food manufacturing plant operations"
-            fill
-            priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
-            className="object-cover object-center"
-          />
-          {/* Mobile scrim — keeps headline/CTA readable over the photo */}
-          <div
-            className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-950/70 to-slate-950/55 lg:hidden"
-            aria-hidden
-          />
-          {/* Desktop seam into the copy column */}
-          <div
-            className="pointer-events-none absolute inset-y-0 left-0 z-10 hidden w-16 lg:block"
-            aria-hidden
-          >
-            <div className="h-full w-full bg-gradient-to-r from-slate-50 via-slate-50/40 to-transparent dark:from-slate-950 dark:via-slate-950/40" />
-          </div>
-        </div>
+      <div className="relative flex min-h-[calc(100svh-4.75rem)] w-full items-center overflow-hidden sm:min-h-[560px] lg:min-h-[640px]">
+        <Image
+          src="/images/hero-consultation-hires.jpg"
+          alt="Consulting team reviewing manufacturing performance data in a plant conference room"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover object-[40%_center] sm:object-[44%_center] lg:object-center"
+        />
 
-        <div className="relative z-10 flex flex-col justify-center px-6 py-12 sm:px-8 sm:py-14 lg:col-start-1 lg:row-start-1 lg:bg-slate-50 lg:px-12 lg:py-12 lg:dark:bg-slate-950 xl:px-16">
-          <div
-            className="pointer-events-none absolute inset-0 hidden opacity-[0.12] lg:block dark:opacity-[0.18]"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 20% 30%, rgba(56,189,248,0.35), transparent 45%), radial-gradient(circle at 80% 70%, rgba(56,189,248,0.2), transparent 40%)",
-            }}
-            aria-hidden
-          />
-          <FadeIn className="relative max-w-xl">
-            <h1 className="text-[1.75rem] font-extrabold uppercase leading-[1.12] tracking-tight text-white sm:text-4xl lg:text-5xl lg:text-slate-900 lg:dark:text-white">
-              <span className="block">Stronger Operations.</span>
-              <span className="block">Stronger Teams.</span>
-              <span className="mt-1 block text-[#b89355]">Better Results.</span>
-            </h1>
-            <p className="mt-5 max-w-md text-sm leading-relaxed text-white/85 sm:text-base lg:text-slate-600 lg:dark:text-slate-300">
-              We help manufacturing companies improve{" "}
-              <span className="font-semibold text-[#c9a86a] lg:text-[#b89355]">performance</span>,
-              increase{" "}
-              <span className="font-semibold text-[#c9a86a] lg:text-[#b89355]">efficiency</span> and
-              drive sustainable growth.
-            </p>
-            <a
-              href="#contact"
-              className="group/cta mt-7 inline-flex items-center justify-center gap-2.5 rounded-md bg-[#b89355] px-7 py-3.5 text-sm font-bold uppercase tracking-wide text-white shadow-lg shadow-black/25 transition duration-200 hover:-translate-y-px hover:bg-[#a6824a] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b89355] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent motion-reduce:transform-none lg:shadow-[#b89355]/30 lg:focus-visible:ring-offset-2"
-            >
-              Request a Consultation
-              <ArrowRight className="cta-arrow" aria-hidden />
-            </a>
-          </FadeIn>
+        {/* Light left wash only — keeps faces clear */}
+        <div
+          className="pointer-events-none absolute inset-0 z-10 bg-gradient-to-r from-slate-950/75 from-[0%] via-slate-950/35 via-[28%] to-transparent to-[52%]"
+          aria-hidden
+        />
+
+        <div className="relative z-20 flex w-full items-center py-14 pl-6 pr-6 sm:py-16 lg:pl-16 xl:pl-20">
+          <div className="w-full max-w-[560px] [text-shadow:0_1px_18px_rgba(0,0,0,0.45)]">
+            <FadeIn>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-[#c29a62] sm:text-[0.8125rem]">
+                Manufacturing Consulting Experts
+              </p>
+
+              <h1 className="text-[1.85rem] font-extrabold uppercase leading-[1.08] tracking-tight text-white sm:text-[2.65rem] lg:text-5xl">
+                <span className="block whitespace-nowrap">Stronger Operations.</span>
+                <span className="block whitespace-nowrap">Stronger Teams.</span>
+                <span className="mt-0.5 block whitespace-nowrap text-[#c29a62]">
+                  Better Results.
+                </span>
+              </h1>
+
+              <p className="mt-5 max-w-md text-[0.95rem] leading-relaxed text-white/90 sm:text-base">
+                We help manufacturing companies improve{" "}
+                <span className="font-medium text-[#c29a62]">performance</span>,
+                increase efficiency and drive sustainable growth.
+              </p>
+
+              <ul className="mt-7 flex flex-nowrap items-center gap-0 whitespace-nowrap">
+                {highlights.map(({ icon: Icon, label }, i) => (
+                  <li key={label} className="flex shrink-0 items-center">
+                    {i > 0 && (
+                      <span
+                        className="mx-3 h-4 w-px shrink-0 bg-white/25"
+                        aria-hidden
+                      />
+                    )}
+                    <span className="flex items-center gap-1.5 text-sm font-medium text-white sm:text-[0.95rem]">
+                      <Icon
+                        className="size-[1.05rem] shrink-0 text-[#c29a62]"
+                        strokeWidth={1.75}
+                        aria-hidden
+                      />
+                      {label}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+
+              <a
+                href="#contact"
+                className="group/cta mt-8 inline-flex items-center justify-center gap-2.5 rounded-[4px] bg-[#c29a62] px-8 py-4 text-[0.95rem] font-bold uppercase tracking-wide text-white shadow-lg shadow-black/25 transition duration-200 hover:-translate-y-px hover:bg-[#b08a55] hover:shadow-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c29a62] focus-visible:ring-offset-2 focus-visible:ring-offset-transparent motion-reduce:transform-none"
+              >
+                Request a Consultation
+                <ArrowRight className="cta-arrow" aria-hidden />
+              </a>
+            </FadeIn>
+          </div>
         </div>
       </div>
 

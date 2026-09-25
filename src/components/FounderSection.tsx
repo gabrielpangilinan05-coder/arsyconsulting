@@ -1,7 +1,7 @@
 "use client";
 
+import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
-import { User } from "lucide-react";
 
 export default function FounderSection() {
   const reduceMotion = useReducedMotion();
@@ -30,20 +30,15 @@ export default function FounderSection() {
             <motion.div
               whileHover={reduceMotion ? undefined : { scale: 1.015 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="relative flex h-[300px] w-[240px] flex-col items-center justify-center overflow-hidden rounded-2xl border border-emerald-500/30 bg-slate-100 sm:h-[310px] sm:w-[250px] dark:border-emerald-500/25 dark:bg-slate-700/60"
+              className="relative h-[300px] w-[240px] overflow-hidden rounded-2xl border border-emerald-500/30 bg-slate-100 sm:h-[310px] sm:w-[250px] dark:border-emerald-500/25 dark:bg-slate-700/60"
             >
-              <div
-                className="absolute inset-0 bg-gradient-to-t from-slate-200/80 via-transparent to-emerald-500/[0.06] dark:from-slate-900/50 dark:to-emerald-500/[0.04]"
-                aria-hidden
+              <Image
+                src="/images/founder-arslan.jpg"
+                alt="U. Arslan, Founder & CEO of Arsy Consulting"
+                fill
+                sizes="250px"
+                className="object-cover object-top"
               />
-              <div className="relative z-10 flex flex-col items-center gap-3 px-4 text-center">
-                <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-                  <User className="h-8 w-8" aria-hidden />
-                </div>
-                <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-slate-500 dark:text-slate-400">
-                  Photo coming soon
-                </p>
-              </div>
             </motion.div>
 
             <span className="mt-5 inline-flex rounded-full border border-emerald-600/40 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.14em] text-emerald-700 dark:border-emerald-500/40 dark:text-emerald-400">

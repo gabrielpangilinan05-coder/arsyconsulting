@@ -37,7 +37,7 @@ const services: ServiceItem[] = [
   "Improve production efficiency, reduce waste, and maintain consistent quality while meeting food safety and regulatory requirements.",
     fullText:
   "Optimize yield, eliminate processing bottlenecks, and build reliable routines to ensure total operational compliance and consistent product quality across lines.",
-    image: "/images/services/food-beverage-production.png",
+    image: "/images/services/food-beverage-production.jpg",
     capabilities: [
   "Waste & Yield Optimization",
   "Food Safety & Compliance",
@@ -51,7 +51,7 @@ const services: ServiceItem[] = [
   "Strengthen manufacturing processes, improve operational efficiency, and support consistent quality in highly regulated production environments.",
     fullText:
   "Streamline pharmaceutical production workflows, maintain strict compliance standards, and ensure high yield while safeguarding batch integrity and product quality across lines.",
-    image: "/images/services/pharmaceuticals.png",
+    image: "/images/services/pharmaceuticals.jpg",
     capabilities: [
   "Regulatory & GMP Compliance",
   "Batch Process Optimization",
@@ -65,7 +65,7 @@ const services: ServiceItem[] = [
   "Build reliable and controlled manufacturing processes that support product quality, regulatory compliance, and efficient production.",
     fullText:
   "Optimize medical device assembly and manufacturing workflows, maintain strict regulatory compliance, and ensure zero-defect quality standards across production lines.",
-    image: "/images/services/medical-devices.png",
+    image: "/images/services/medical-devices.jpg",
   capabilities: [
   "Quality System & Regulatory Compliance",
   "Assembly Line Optimization",
@@ -79,7 +79,7 @@ description:
   "Improve process control, production efficiency, and workplace safety while reducing waste, downtime, and unnecessary operating costs.",
 fullText:
   "Optimize chemical manufacturing workflows, enhance process stability, and implement robust safety protocols to lower operating costs and ensure peak operational yield.",
-image: "/images/services/chemicals.png",
+image: "/images/services/chemicals.jpg",
 capabilities: [
   "Process & Yield Optimization",
   "EHS & Workplace Safety",
@@ -94,7 +94,7 @@ capabilities: [
   "Optimize production flow, improve quality, reduce downtime, and create more efficient processes that support demanding automotive standards.",
     fullText:
   "Streamline assembly line workflows, eliminate operational bottlenecks, and enforce rigorous quality control to maximize throughput and meet strict automotive manufacturing standards.",
-    image: "/images/services/automotive.png",
+    image: "/images/services/automotive.jpg",
     capabilities: [
   "Assembly Line & Flow Optimization",
   "Downtime & Bottleneck Reduction",
@@ -109,7 +109,7 @@ description:
   "Increase production reliability and consistency by improving workflows, quality controls, and manufacturing processes in fast-moving production environments.",
 fullText:
   "Optimize high-velocity electronics assembly lines, enhance yield rates, and implement rigorous quality checks to maintain consistency across fast-moving production schedules.",
-image: "/images/services/electronics.png",
+image: "/images/services/electronics.jpg",
 capabilities: [
   "Workflow & Line Efficiency",
   "Yield & Quality Control",
@@ -123,7 +123,7 @@ capabilities: [
       "Reduce production losses, improve line efficiency, and optimize processes to deliver consistent output while controlling operating costs.",
     fullText:
       "Optimize packaging line throughput, minimize material waste, and refine operational processes to maintain high output standards while keeping operating costs under control.",
-    image: "/images/services/packaging.png",
+    image: "/images/services/packaging.jpg",
     capabilities: [
       "Line Efficiency & Speed",
       "Waste & Loss Reduction",
@@ -138,7 +138,7 @@ capabilities: [
       "Identify bottlenecks, improve shop-floor performance, and establish more disciplined processes that help manufacturers operate efficiently and consistently.",
     fullText:
       "Streamline complex plant workflows, eliminate shop-floor bottlenecks, and instill operational discipline to ensure reliable, high-yield production across facilities.",
-    image: "/images/services/industrial-manufacturing.png",
+    image: "/images/services/industrial-manufacturing.jpg",
     capabilities: [
       "Bottleneck & Flow Analysis",
       "Shop-Floor Performance Optimization",
@@ -153,7 +153,7 @@ capabilities: [
       "Improve manufacturing workflows, production planning, and process reliability while reducing avoidable downtime.",
     fullText:
       "Enhance heavy equipment manufacturing workflows, refine master production planning, and build reliable processes to minimize downtime and maximize operational capacity.",
-    image: "/images/services/machinery-equipment.png",
+    image: "/images/services/machinery-equipment.jpg",
     capabilities: [
       "Production Planning & Scheduling",
       "Downtime Reduction & Preventative Maintenance",

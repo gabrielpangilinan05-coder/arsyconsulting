@@ -41,7 +41,7 @@ const industries: IndustryItem[] = [
       "Daily Management Systems",
       "Operational Efficiency",
     ],
-    image: "/images/services/operational-excellence.jpg",
+    image: "/images/services/operational-excellence-v2.jpg",
     icon: Factory,
   },
   {
@@ -56,7 +56,7 @@ const industries: IndustryItem[] = [
       "Yield Improvement",
       "Margin Protection",
     ],
-    image: "/images/services/cost-optimization.jpg",
+    image: "/images/services/cost-reduction.jpg",
     icon: DollarSign,
   },
   {
@@ -71,7 +71,7 @@ const industries: IndustryItem[] = [
       "Shop-Floor Flow",
       "Process Mapping",
     ],
-    image: "/images/services/process-improvement.jpg",
+    image: "/images/services/process-improvement-v2.jpg",
     icon: Zap,
   },
   {
@@ -86,7 +86,7 @@ const industries: IndustryItem[] = [
       "Standardized Quality Controls",
       "Scrap Reduction",
     ],
-    image: "/images/services/kpi-management.png",
+    image: "/images/services/quality-consistency.jpg",
     icon: ShieldCheck,
   },
   {
@@ -101,7 +101,7 @@ const industries: IndustryItem[] = [
       "Asset Utilization",
       "Capacity Maximization",
     ],
-    image: "/images/services/capacity-optimization.png",
+    image: "/images/services/productivity-improvement.jpg",
     icon: TrendingUp,
   },
   {
@@ -116,7 +116,7 @@ const industries: IndustryItem[] = [
       "Sustained Performance",
       "Operational Governance",
     ],
-    image: "/images/services/transformation.jpg",
+    image: "/images/services/sustainable-improvements.jpg",
     icon: PieChart,
   },
 ];
