@@ -1,9 +1,21 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-// Local/dev default. Live cPanel uses deploy/api config (info@arsyconsulting.com).
-const AUDIT_RECIPIENT =
-  process.env.AUDIT_RECIPIENT?.trim() || "gabrielpangilinan05@gmail.com";
+const AUDIT_FROM =
+  process.env.AUDIT_FROM?.trim() ||
+  "Arsy Audit Form <noreply@arsyconsulting.com>";
+
+function parseRecipients(value: string | undefined): string[] {
+  const list = (value ?? "info@arsyconsulting.com,ricamaevillahermosa25@gmail.com")
+    .split(",")
+    .map((email) => email.trim())
+    .filter(Boolean);
+  return list.length > 0
+    ? list
+    : ["info@arsyconsulting.com", "ricamaevillahermosa25@gmail.com"];
+}
+
+const AUDIT_RECIPIENTS = parseRecipients(process.env.AUDIT_RECIPIENT);
 
 function escapeHtml(value: unknown) {
   return String(value ?? "")
@@ -63,8 +75,8 @@ export async function POST(req: Request) {
 
     const resend = new Resend(apiKey);
     const { data, error } = await resend.emails.send({
-      from: "Arsy Audit Form <onboarding@resend.dev>",
-      to: AUDIT_RECIPIENT,
+      from: AUDIT_FROM,
+      to: AUDIT_RECIPIENTS,
       replyTo: email,
       subject: "New Audit Request - Arsy Consulting",
       html: `
