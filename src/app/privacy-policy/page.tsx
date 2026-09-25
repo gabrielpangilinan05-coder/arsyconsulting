@@ -31,7 +31,7 @@ export default function PrivacyPolicyPage() {
           >
             info@arsyconsulting.com
           </a>{" "}
-          or +852 800 938 238.
+          or +1 866 407 4506.
         </p>
       </LegalSection>
 
@@ -187,10 +187,10 @@ export default function PrivacyPolicyPage() {
           <br />
           Phone:{" "}
           <a
-            href="tel:+852800938238"
+            href="tel:+18664074506"
             className="font-medium text-emerald-600 underline-offset-2 hover:underline dark:text-emerald-400"
           >
-            +852 800 938 238
+            +1 866 407 4506
           </a>
         </p>
       </LegalSection>

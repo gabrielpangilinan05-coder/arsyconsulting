@@ -59,14 +59,14 @@ export default function Footer() {
                     info@arsyconsulting.com
                   </a>
                   <a
-                    href="tel:+852800938238"
+                    href="tel:+18664074506"
                     className="flex items-center gap-2 text-sm text-slate-700 transition-colors hover:text-emerald-600 md:justify-end dark:text-slate-400 dark:hover:text-emerald-400"
                   >
                     <Phone
                       className="h-4 w-4 shrink-0 text-emerald-600 dark:text-emerald-400"
                       aria-hidden
                     />
-                    +852 800 938 238
+                    +1 866 407 4506
                   </a>
                 </div>
               </div>

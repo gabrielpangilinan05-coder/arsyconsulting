@@ -166,7 +166,7 @@ export default function TermsPage() {
           >
             info@arsyconsulting.com
           </a>{" "}
-          or +852 800 938 238.
+          or +1 866 407 4506.
         </p>
         <p>
           Arsy Consulting
