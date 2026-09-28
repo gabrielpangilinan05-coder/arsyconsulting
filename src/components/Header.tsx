@@ -34,12 +34,7 @@ export default function Header() {
           className="inline-flex shrink-0 items-center self-center rounded-md outline-offset-2 transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600"
           aria-label="Arsy Consulting home"
         >
-          <Logo
-            priority
-            width={120}
-            height={120}
-            className="h-10 w-auto object-contain object-left sm:h-11"
-          />
+          <Logo circular priority />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
