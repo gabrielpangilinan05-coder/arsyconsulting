@@ -28,9 +28,18 @@ export default function Header() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-md transition-all dark:border-slate-800/60 dark:bg-slate-950/80">
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
-        <a href="/" className="flex items-center gap-2" aria-label="Arsy Consulting home">
-          <Logo circular priority />
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 sm:py-3.5 lg:px-8">
+        <a
+          href="/"
+          className="inline-flex shrink-0 items-center self-center rounded-md outline-offset-2 transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600"
+          aria-label="Arsy Consulting home"
+        >
+          <Logo
+            priority
+            width={120}
+            height={120}
+            className="h-10 w-auto object-contain object-left sm:h-11"
+          />
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
