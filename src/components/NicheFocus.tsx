@@ -690,9 +690,6 @@ export default function NicheFocus() {
                 </li>
               ))}
             </ul>
-            <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
-              Music by Vaitsez, via Pixabay.
-            </p>
           </motion.div>
         </div>
 
