@@ -10,12 +10,6 @@ const highlights = [
   { icon: Users, label: "Stronger Teams" },
 ];
 
-const metrics = [
-  { value: "15–30%", label: "Typical cost reduction potential" },
-  { value: "+8–20 pts", label: "OEE improvement range" },
-  { value: "90 days", label: "To first measurable gains" },
-];
-
 export default function Hero() {
   return (
     <section
@@ -101,23 +95,6 @@ export default function Hero() {
             </FadeIn>
           </div>
         </div>
-      </div>
-
-      <div className="mx-auto max-w-6xl px-[clamp(1.25rem,4vw,2rem)] py-[clamp(1.5rem,3vw,2.5rem)]">
-        <FadeIn delay={0.15}>
-          <div className="grid w-full grid-cols-3 gap-[clamp(0.5rem,1.5vw,1rem)] rounded-2xl border border-slate-200 bg-white p-[clamp(0.75rem,2vw,1.25rem)] shadow-sm dark:border-slate-800 dark:bg-slate-900">
-            {metrics.map((metric) => (
-              <div key={metric.label} className="min-w-0">
-                <p className="mb-0.5 text-[clamp(1rem,2vw+0.5rem,1.875rem)] font-extrabold text-emerald-600 dark:text-emerald-400">
-                  {metric.value}
-                </p>
-                <p className="text-[clamp(0.625rem,0.4vw+0.5rem,0.75rem)] font-medium leading-snug text-slate-500 dark:text-slate-400">
-                  {metric.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
       </div>
     </section>
   );

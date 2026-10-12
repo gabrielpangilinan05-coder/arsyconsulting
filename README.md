@@ -29,6 +29,8 @@ Create `.env.local`:
 RESEND_API_KEY=re_xxxxxxxx
 # Optional override for the contact form endpoint (defaults to /api/audit-request)
 # NEXT_PUBLIC_FORM_ENDPOINT=/api/audit-request.php
+# Google Analytics 4 Measurement ID (Admin → Data streams → Web → Measurement ID)
+NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
 ```
 
 ## Deploy to Host Hong Kong (cPanel)
@@ -59,6 +61,15 @@ This writes production files to `out/`.
 - Homepage loads on the temporary or live URL
 - Submit the contact form once and confirm the email arrives
 - `/privacy-policy/` and `/terms/` load (trailing slashes)
+- If GA4 is configured: open Google Analytics → Reports → Realtime and confirm your visit appears after loading the live site
+
+## Google Analytics (GA4)
+
+1. Create a GA4 property at [analytics.google.com](https://analytics.google.com) (or use an existing one).
+2. Add a **Web** data stream for `https://arsyconsulting.com` and copy the Measurement ID (`G-…`).
+3. Put it in `.env.local` as `NEXT_PUBLIC_GA_MEASUREMENT_ID`.
+4. Rebuild and redeploy (`npm run build:cpanel`, then upload `out/`). The ID is baked in at build time.
+5. In GA4 Admin → Data streams → your stream → Enhanced measurement, keep **Page changes based on browser history events** enabled so client-side navigations are counted.
 
 ## Sections
 

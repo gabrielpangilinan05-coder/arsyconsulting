@@ -4,6 +4,8 @@ import Script from "next/script";
 import ThemeProvider from "@/components/ThemeProvider";
 import "./globals.css";
 
+const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
+
 const plusJakarta = Plus_Jakarta_Sans({
   variable: "--font-plus-jakarta",
   subsets: ["latin"],
@@ -101,6 +103,19 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        {gaId ? (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}',{send_page_view:true});`,
+              }}
+            />
+          </>
+        ) : null}
       </head>
       <body className="flex min-h-full flex-col bg-slate-50 font-sans text-slate-900 antialiased dark:bg-slate-950 dark:text-white">
         <ThemeProvider>{children}</ThemeProvider>
