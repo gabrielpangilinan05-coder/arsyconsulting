@@ -64,28 +64,28 @@ const services: ServiceItem[] = [
     id: "medical-devices",
     title: "Medical Devices",
     description:
-  "Build reliable and controlled manufacturing processes that support product quality, regulatory compliance, and efficient production.",
+  "Standardize production routines to achieve high-yield manufacturing with uncompromising safety.",
     fullText:
-  "Optimize medical device assembly and manufacturing workflows, maintain strict regulatory compliance, and ensure zero-defect quality standards across production lines.",
+  "Standardize production routines to achieve high-yield manufacturing with uncompromising safety.",
     image: "/images/services/medical-devices.jpg",
   capabilities: [
-  "Quality System & Regulatory Compliance",
-  "Assembly Line Optimization",
-  "Traceability & Defect Reduction",],
+  "ISO & Regulatory Compliance",
+  "Line Efficiency & Process Optimization",
+  "Quality Control & Traceability",],
     icon: HeartPulse,
   },
   {
     id: "chemicals",
 title: "Chemicals",
 description:
-  "Improve process control, production efficiency, and workplace safety while reducing waste, downtime, and unnecessary operating costs.",
+  "Enhance reaction stability and implement robust safety protocols to lower operating costs across production facilities.",
 fullText:
-  "Optimize chemical manufacturing workflows, enhance process stability, and implement robust safety protocols to lower operating costs and ensure peak operational yield.",
+  "Enhance reaction stability and implement robust safety protocols to lower operating costs across production facilities.",
 image: "/images/services/chemicals.jpg",
 capabilities: [
   "Process & Yield Optimization",
-  "EHS & Workplace Safety",
-  "Downtime & Waste Reduction",],
+  "EHS & Regulatory Compliance",
+  "Downtime & Material Waste Reduction",],
 
     icon: FlaskConical,
   },
@@ -93,14 +93,14 @@ capabilities: [
     id: "automotive",
   title: "Automotive",
     description:
-  "Optimize production flow, improve quality, reduce downtime, and create more efficient processes that support demanding automotive standards.",
+  "Streamline production workflows to maximize throughput and ensure uncompromising vehicle reliability across lines.",
     fullText:
-  "Streamline assembly line workflows, eliminate operational bottlenecks, and enforce rigorous quality control to maximize throughput and meet strict automotive manufacturing standards.",
+  "Streamline production workflows to maximize throughput and ensure uncompromising vehicle reliability across lines.",
     image: "/images/services/automotive.jpg",
     capabilities: [
   "Assembly Line & Flow Optimization",
-  "Downtime & Bottleneck Reduction",
-  "Quality Standards & Defect Control",],
+  "Downtime & Bottleneck Elimination",
+  "Defect Prevention & Quality Control",],
 
     icon: Car,
   },
@@ -108,13 +108,13 @@ capabilities: [
    id: "electronics",
 title: "Electronics",
 description:
-  "Increase production reliability and consistency by improving workflows, quality controls, and manufacturing processes in fast-moving production environments.",
+  "Accelerate high-velocity manufacturing and maintain steady throughput across fast-moving production schedules.",
 fullText:
-  "Optimize high-velocity electronics assembly lines, enhance yield rates, and implement rigorous quality checks to maintain consistency across fast-moving production schedules.",
+  "Accelerate high-velocity manufacturing and maintain steady throughput across fast-moving production schedules.",
 image: "/images/services/electronics.jpg",
 capabilities: [
-  "Workflow & Line Efficiency",
-  "Yield & Quality Control",
+  "Assembly Workflow & Line Efficiency",
+  "First-Pass Yield & Quality Control",
   "Process Reliability & Defect Reduction",],
     icon: Cpu,
   },
@@ -122,14 +122,14 @@ capabilities: [
     id: "packaging",
     title: "Packaging",
     description:
-      "Reduce production losses, improve line efficiency, and optimize processes to deliver consistent output while controlling operating costs.",
+      "Standardize line routines for high-volume, cost-effective packaging operations.",
     fullText:
-      "Optimize packaging line throughput, minimize material waste, and refine operational processes to maintain high output standards while keeping operating costs under control.",
+      "Standardize line routines for high-volume, cost-effective packaging operations.",
     image: "/images/services/packaging.jpg",
     capabilities: [
-      "Line Efficiency & Speed",
-      "Waste & Loss Reduction",
-      "Process Optimization & Cost Control",
+      "Throughput & Speed Optimization",
+      "Waste & Scrap Minimization",
+      "Operational Cost Control",
     ],
     icon: Package,
   },
@@ -137,14 +137,14 @@ capabilities: [
     id: "industrial-manufacturing",
     title: "Industrial Manufacturing",
     description:
-      "Identify bottlenecks, improve shop-floor performance, and establish more disciplined processes that help manufacturers operate efficiently and consistently.",
+      "Maximize facility throughput and standardize plant execution for reliable, large-scale output.",
     fullText:
-      "Streamline complex plant workflows, eliminate shop-floor bottlenecks, and instill operational discipline to ensure reliable, high-yield production across facilities.",
+      "Maximize facility throughput and standardize plant execution for reliable, large-scale output.",
     image: "/images/services/industrial-manufacturing.jpg",
     capabilities: [
-      "Bottleneck & Flow Analysis",
+      "Bottleneck Analysis & Line Flow",
       "Shop-Floor Performance Optimization",
-      "Process Discipline & Standardization",
+      "Quality & Process Standardization",
     ],
     icon: Factory,
   },
@@ -152,12 +152,12 @@ capabilities: [
     id: "machinery-equipment",
     title: "Machinery & Equipment",
     description:
-      "Improve manufacturing workflows, production planning, and process reliability while reducing avoidable downtime.",
+      "Refine heavy equipment manufacturing and build resilient routines to maximize plant operational capacity.",
     fullText:
-      "Enhance heavy equipment manufacturing workflows, refine master production planning, and build reliable processes to minimize downtime and maximize operational capacity.",
+      "Refine heavy equipment manufacturing and build resilient routines to maximize plant operational capacity.",
     image: "/images/services/machinery-equipment.jpg",
     capabilities: [
-      "Production Planning & Scheduling",
+      "Master Production Planning & Scheduling",
       "Downtime Reduction & Preventative Maintenance",
       "Workflow & Reliability Optimization",
     ],
