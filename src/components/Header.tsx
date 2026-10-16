@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "@/components/ThemeToggle";
-import Logo from "@/components/Logo";
 
 const links = [
   { href: "/#services", label: "Services" },
@@ -34,7 +33,9 @@ export default function Header() {
           className="inline-flex shrink-0 items-center self-center rounded-md outline-offset-2 transition-opacity hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-emerald-600"
           aria-label="Arsy Consulting home"
         >
-          <Logo circular priority />
+          <span className="text-base font-extrabold tracking-tight text-slate-900 sm:text-lg dark:text-white">
+            arsyconsulting
+          </span>
         </a>
 
         <nav className="hidden items-center gap-7 lg:flex" aria-label="Primary">
