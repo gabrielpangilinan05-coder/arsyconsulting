@@ -34,28 +34,30 @@ const services: ServiceItem[] = [
     id: "food-beverage",
     title: "Food & Beverage",
     description:
-  "Improve production efficiency, reduce waste, and maintain consistent quality while meeting food safety and regulatory requirements.",
+      "Streamline operations and standardize routines for total line compliance and consistency.",
     fullText:
-  "Optimize yield, eliminate processing bottlenecks, and build reliable routines to ensure total operational compliance and consistent product quality across lines.",
+      "Streamline operations and standardize routines for total line compliance and consistency.",
     image: "/images/services/food-beverage-production.jpg",
     capabilities: [
-  "Waste & Yield Optimization",
-  "Food Safety & Compliance",
-  "Quality Control & Line Efficiency",],
+      "Yield & Waste Optimization",
+      "Food Safety Management",
+      "Line Efficiency & Quality Control",
+    ],
     icon: UtensilsCrossed,
   },
   {
     id: "pharmaceuticals",
     title: "Pharmaceuticals",
     description:
-  "Strengthen manufacturing processes, improve operational efficiency, and support consistent quality in highly regulated production environments.",
+      "Standardize manufacturing routines for high-output, fully verified production lines.",
     fullText:
-  "Streamline pharmaceutical production workflows, maintain strict compliance standards, and ensure high yield while safeguarding batch integrity and product quality across lines.",
+      "Standardize manufacturing routines for high-output, fully verified production lines.",
     image: "/images/services/pharmaceuticals.jpg",
     capabilities: [
-  "Regulatory & GMP Compliance",
-  "Batch Process Optimization",
-  "Quality Assurance & Control",],
+      "Regulatory & GMP Compliance",
+      "Batch Process Optimization",
+      "Quality Assurance & Integrity",
+    ],
     icon: Pill,
   },
   {
